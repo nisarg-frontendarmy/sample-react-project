@@ -1,79 +1,90 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [name, setName] = useState("");
-  const [emailErrMessage, setEmailErrMessage] = useState("");
-  const [passErrMessage, setPassErrMessage] = useState("");
-  const [nameErrMessage, setNameErrMessage] = useState("");
-
-  const [signnedIn, setsignnedIn] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const history = useNavigate();
 
-  const handleSignup = () => {
-    if (!name) {
-      setNameErrMessage("Please Enter Your FullName");
-    }
-    if (!email) {
-      setEmailErrMessage("Please Enter Your Email");
-    }
-    if (!pass) {
-      setPassErrMessage("Please Enter Your Password");
-    } else {
-      setsignnedIn(true);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(email);
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
   return (
     <div className="auth-form-container">
       <h2> SignUp Your Account</h2>
-      <form className="register-form" onSubmit={handleSubmit}>
+      <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="name">Full Name</label>
         <input
-          value={name}
-          name="name"
-          onChange={(e) => [setName(e.target.value), setNameErrMessage("")]}
-          type="name"
+          {...register("name", {
+            required: "Please enter your full name",
+            pattern: {
+              value: /^[A-Za-z]+$/,
+              message: "Username must not include numbers",
+            },
+          })}
+          type="text"
           id="name"
           placeholder="Enter Your Full Name"
         />
-        {nameErrMessage && <span style={{color:"red", textAlign:"initial"}}>{nameErrMessage}</span>}
+        {errors.name && (
+          <span style={{ color: "red", textAlign: "initial" }}>
+            {errors.name?.message}
+          </span>
+        )}
 
         <label htmlFor="email">Email</label>
         <input
-          value={email}
-          onChange={(e) => [setEmail(e.target.value), setEmailErrMessage("")]}
+          {...register("email", {
+            required: "Please enter your email",
+            pattern: {
+              value:
+                /^[A-Za-z]+[A-Za-z0-9._%+-]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/,
+              message: "Invalid Email Address",
+            },
+          })}
           type="email"
           placeholder="Enter Your Email"
           id="email"
-          name="email"
         />
-        {emailErrMessage && <span style={{color:"red", textAlign:"initial"}}>{emailErrMessage}</span>}
+        {errors.email && (
+          <span style={{ color: "red", textAlign: "initial" }}>
+            {errors.email?.message}
+          </span>
+        )}
 
         <label htmlFor="password">Password</label>
         <input
-          value={pass}
-          onChange={(e) => [setPass(e.target.value), setPassErrMessage("")]}
+          {...register("password", {
+            required: "Please enter your password",
+            minLength: {
+              value: 8,
+              message: "Password must be at least 8 characters",
+            },
+            maxLength: {
+              value: 32,
+              message: "Password must be at most 32 characters",
+            },
+            pattern: {
+              value: /^(?=.*[A-Z]).*$/,
+              message: "Password must start with an uppercase letter",
+            },
+          })}
           type="password"
           placeholder="********"
           id="password"
-          name="password"
         />
-        {passErrMessage && <span style={{color:"red", textAlign:"initial"}}>{passErrMessage}</span>}
-        {!signnedIn ? (
-          <button onClick={handleSignup} type="submit">
-            SignIn
-          </button>
-        ) : (
-          <p>You are SignedIn.</p>
+        {errors.password && (
+          <span style={{ color: "red", textAlign: "initial" }}>
+            {errors.password?.message}
+          </span>
         )}
+
+        <button type="submit">SignIn</button>
       </form>
 
       <button className="link-btn" onClick={() => history("/")}>
@@ -82,4 +93,5 @@ const Register = () => {
     </div>
   );
 };
+
 export default Register;

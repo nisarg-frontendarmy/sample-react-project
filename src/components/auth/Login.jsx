@@ -3,7 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const history = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -24,7 +28,13 @@ const Login = () => {
         <input
           {...register("email", {
             required: "Please enter email",
+            pattern: {
+              value:
+                /^[A-Za-z]+[A-Za-z0-9._%+-]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/,
+              message: "Invalid Email Address",
+            },
           })}
+          render={({ field }) => <input type="text" {...field} />}
           type="email"
           placeholder="Enter Your Email"
           id="email"
@@ -32,13 +42,25 @@ const Login = () => {
         />
         {errors.email && (
           <span style={{ color: "red", textAlign: "initial" }}>
-            {errors.email.message}
+            {errors.email?.message}
           </span>
         )}
         <label htmlFor="password">Password</label>
         <input
           {...register("password", {
-            required: "Please enter password",
+            required: "Please enter a password",
+            minLength: {
+              value: 8,
+              message: "Password must be at least 8 characters",
+            },
+            maxLength: {
+              value: 32,
+              message: "Password must be at most 32 characters",
+            },
+            pattern: {
+              value: /^(?=.*[A-Z]).*$/,
+              message: "Password must start with an uppercase letter",
+            },
           })}
           type="password"
           placeholder="********"
@@ -51,9 +73,7 @@ const Login = () => {
           </span>
         )}
         {!loggedIn ? (
-          <button type="submit">
-            Log In
-          </button>
+          <button type="submit">Log In</button>
         ) : (
           <p>You are Logged In.</p>
         )}
@@ -61,7 +81,7 @@ const Login = () => {
       <button className="link-btn" onClick={() => history("signup")}>
         Don't have an account? Register here.
       </button>
-      <Link  to="/signup" className="link">
+      <Link to="/signup" className="link">
         SignUp
       </Link>
       <Link className="link" to="/forgotpassword">
