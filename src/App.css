@@ -1,0 +1,232 @@
+@media screen and (min-width: 600px) {
+  body {
+    text-align: center;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #F7944D);
+  }
+}
+
+.auth-form-container,
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.auth-form-container {
+  padding: 5rem;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 0.5rem;
+  margin-left: 600px;
+  margin-top: 100px;
+  position: fixed;
+  width: fit-content;
+}
+
+
+label {
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+input {
+  margin: 0.6rem 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  ;
+}
+
+button {
+  border: none;
+  /* background-color: white; */
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #7439db;
+}
+
+.link-btn {
+  background: none;
+  color: white;
+  text-decoration: none;
+}
+
+.link {
+  background: none;
+  color: white;
+  text-decoration: none;
+}
+
+/* Student List Page - Dashboard Page */
+
+.Dashboard-Table {
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dashboard : GO To Student Page Button */
+.btn-1 {
+  color: black;
+  background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #d0bbad);
+  display: flex;
+  margin-left: 180vh;
+  margin-top: 15px;
+  font-family: Inter, Hellvetica, sans-serif;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.btn2 {
+  color: white;
+  font-size: large;
+  /* margin-top: -550px; */
+  font-family: Inter, Hellvetica, sans-serif;
+  background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #a15a28);
+}
+
+h1 {
+  color: black;
+  font-family: Inter, Hellvetica, sans-serif;
+  margin-top: 10px;
+}
+
+
+.table {
+  width: 180vh;
+  height: 50vh;
+  margin-left: 80px;
+  align-items: center;
+  color: black;
+  font-size: large;
+  font-family: Inter, Hellvetica, sans-serif;
+  border: 2px solid rgba(70, 16, 16, 0.441);
+}
+
+
+
+th {
+  border-right: 1px solid rgba(70, 16, 16, 0.441);
+  border-bottom: 1px solid rgba(70, 16, 16, 0.441);
+  padding: 10px;
+}
+
+
+td {
+  border-right: 1px solid rgba(70, 16, 16, 0.441);
+  border-bottom: 1px solid rgba(70, 16, 16, 0.441);
+  padding: 25px;
+  font-size: medium;
+}
+
+#btn-2 {
+  color: black;
+  background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #F7944D);
+  padding: 20px 60px;
+  display: flex;
+  margin-top: -58px;
+  margin-left: 124vh;
+  font-size: medium;
+  font-family: Inter, Hellvetica, sans-serif;
+}
+
+/* Forgot Password */
+
+
+#Pass1 {
+  color: white;
+}
+
+#btn2 {
+  margin-top: 25px;
+  color: black;
+  font-family: Inter, Hellvetica, sans-serif;
+  font-size: large;
+}
+
+.Forgot-Password {
+  position: fixed;
+  margin-left: 550px;
+  margin-top: 200px;
+}
+
+.Forgot {
+  border: 1px solid white;
+  flex-direction: column;
+  text-align: center;
+  display: flex;
+  color: white;
+  padding: 25px;
+  width: 500px;
+  height: 390px;
+  /* margin-left: 600px; */
+}
+
+/* Student List Page Design */
+
+#heading {
+  margin-top: -350px;
+  color: black;
+}
+
+.single-student {
+  padding: 20px;
+  width: 129%;
+  margin-left: -120px;
+  border: 1px solid black;
+  padding: 0px;
+  color: black;
+}
+
+/* Student:  Style the Button */
+
+#btn0 {
+  padding: 15px 35px;
+  color: white;
+  font-family: Inter, Hellvetica, sans-serif;
+  background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #7d471f);
+  font-size: medium;
+}
+
+
+/* Single Student : Style the elements */
+.para1 {
+  position: fixed;
+  border: 2px solid black;
+  text-align: left;
+  padding: 5px;
+  font-family: Inter, Hellvetica, sans-serif;
+  font-size: medium;
+  font-style: italic;
+  margin-top: 30vh;
+  width: 900px;
+  background-color: #df9b6a transparent;
+  color: #362f29;
+}
+
+/* .List-items {
+  align-items: center;
+} */
+
+.List-items li {
+  margin-bottom: 10px;
+  font-family: Inter, Hellvetica, sans-serif;
+  font-size: large;
+}
+
+#heading-1 {
+  font-family: Inter, Hellvetica, sans-serif;
+  font-size: larger;
+}
+
+.password-error {
+  text-align: initial;
+}
