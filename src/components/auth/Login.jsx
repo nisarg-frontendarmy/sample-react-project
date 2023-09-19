@@ -73,7 +73,7 @@ const Login = () => {
           </span>
         )}
         {!loggedIn ? (
-          <button type="submit">Log In</button>
+          <button className="log1" type="submit">Log In</button>
         ) : (
           <p>You are Logged In.</p>
         )}

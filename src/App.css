@@ -63,6 +63,13 @@ button {
   text-decoration: none;
 }
 
+.log1 {
+  color: black;
+  font-size: medium;
+  font-family: Inter,Hellvetica,sans-serif;
+  margin-top: 10px;
+}
+
 /* Student List Page - Dashboard Page */
 
 .Dashboard-Table {
