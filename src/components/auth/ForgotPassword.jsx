@@ -1,89 +1,87 @@
-import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ForgotPassword = () => {
-  const [resetpassword, setResetPassword] = useState("");
-  const [confirmpassword, setConfrimPassword] = useState("");
-  const [resetpasswordErrMessage, setResetPasswordErrMessage] = useState("");
-  const [confrimpasswordErrMessage, setConfrimPasswordErrMessage] =
-    useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    watch,
+  } = useForm();
 
-  const [forgotp, setForgotp] = useState("");
-  // const history = useNavigate();
-
-  const hanldeForgotten = () => {
-    if (!resetpassword) {
-      setResetPasswordErrMessage("Please Enter The New Password");
+  const onSubmit = (data) => {
+    if (data.resetpassword !== data.confirmpassword) {
+      toast.error("Passwords do not match.", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      return;
     }
-    if (!confirmpassword) {
-      setConfrimPasswordErrMessage("Please Enter The Confrim Password");
-    } else {
+
+    setTimeout(() => {
       toast.success("Password Reset Successful!", {
         position: "top-right",
         autoClose: 3000,
       });
-      // history("/");
-      setForgotp(false);
-    }
+      reset();
+    }, 100);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(resetpassword);
-  };
+  const password = watch("resetpassword");
+  const confirmPassword = watch("confirmpassword");
 
   return (
     <div className="Forgot-Password">
-      <form className="Forgot" onSubmit={handleSubmit}>
+      <form className="Forgot" onSubmit={handleSubmit(onSubmit)}>
         <h2 id="Pass1">Forgot Password</h2>
         <label id="l1">Reset Password:</label>
         <input
           type="password"
-          value={resetpassword}
-          onChange={(e) => [
-            setResetPassword(e.target.value),
-            setResetPasswordErrMessage(""),
-          ]}
+          {...register("resetpassword", {
+            required: "Please Enter The New Password",
+            minLength: {
+              value: 6,
+              message: "Password must be at least 6 characters long",
+            },
+          })}
           placeholder="Enter Your New Password"
           id="Reset"
-          name="ResetPassword"
+          name="resetpassword"
         />
-        {resetpasswordErrMessage && (
+        {errors.resetpassword && (
           <span className="password-error " style={{ color: "red" }}>
-            {resetpasswordErrMessage}
+            {errors.resetpassword.message}
           </span>
         )}
 
-        <label>Confrim Password:</label>
+        <label>Confirm Password:</label>
 
         <input
-        className="l1"
+          className="l1"
           type="password"
-          value={confirmpassword}
-          placeholder="Enter Your Confrim Password"
-          onChange={(e) => [
-            setConfrimPassword(e.target.value),
-            setConfrimPasswordErrMessage(""),
-          ]}
+          {...register("confirmpassword", {
+            required: "Please Enter The Confirm Password",
+            validate: (value) =>
+              value === password || "Passwords do not match",
+          })}
+          placeholder="Enter Your Confirm Password"
           id="Confrim"
-          name="Confrim Password"
+          name="confirmpassword"
         />
-        {confrimpasswordErrMessage && (
+        {errors.confirmpassword && (
           <span className="password-error" style={{ color: "red" }}>
-            {confrimpasswordErrMessage}
+            {errors.confirmpassword.message}
           </span>
         )}
 
-        {!forgotp ? (
-          <button id="btn2" onClick={() => hanldeForgotten()} type="Submit">
-            Reset Password
-          </button>
-        ) : (
-          <p>Your Password Successfullyu reset.</p>
-        )}
-        <ToastContainer theme="dark"/>
+        <button id="btn2" type="submit">
+          Reset Password
+        </button>
+
+        <ToastContainer theme="dark" />
       </form>
     </div>
   );
