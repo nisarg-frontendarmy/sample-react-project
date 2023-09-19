@@ -31,7 +31,6 @@ const ForgotPassword = () => {
   };
 
   const password = watch("resetpassword");
-  const confirmPassword = watch("confirmpassword");
 
   return (
     <div className="Forgot-Password">
@@ -64,8 +63,7 @@ const ForgotPassword = () => {
           type="password"
           {...register("confirmpassword", {
             required: "Please Enter The Confirm Password",
-            validate: (value) =>
-              value === password || "Passwords do not match",
+            validate: (value) => value === password || "Passwords do not match",
           })}
           placeholder="Enter Your Confirm Password"
           id="Confrim"
