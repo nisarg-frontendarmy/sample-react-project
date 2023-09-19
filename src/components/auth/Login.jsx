@@ -20,7 +20,7 @@ const Login = () => {
     <div className="auth-form-container">
       <h2>Login</h2>
       <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email Address</label>
         <input
           {...register("email", {
             required: "Please enter email",
