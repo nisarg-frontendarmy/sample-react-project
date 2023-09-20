@@ -51,7 +51,7 @@ const ForgotPassword = () => {
           name="resetpassword"
         />
         {errors.resetpassword && (
-          <span className="password-error " style={{ color: "red" }}>
+          <span className="password-error ">
             {errors.resetpassword.message}
           </span>
         )}

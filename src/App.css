@@ -70,6 +70,18 @@ button {
   margin-top: 10px;
 }
 
+/* Login Page Email Address and Password Validation  */
+.error {
+  color: red;
+  text-align: initial;
+}
+
+/* Forgot-Password Page Error Validation  */
+.password-error {
+  color: red;
+  text-align: initial;
+}
+
 /* Student List Page - Dashboard Page */
 
 .Dashboard-Table {

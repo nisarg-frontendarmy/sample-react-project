@@ -41,7 +41,7 @@ const Login = () => {
           name="email"
         />
         {errors.email && (
-          <span style={{ color: "red", textAlign: "initial" }}>
+          <span className="error">
             {errors.email?.message}
           </span>
         )}
@@ -68,7 +68,7 @@ const Login = () => {
           name="password"
         />
         {errors.password && (
-          <span style={{ color: "red", textAlign: "initial" }}>
+          <span className="error">
             {errors.password.message}
           </span>
         )}
