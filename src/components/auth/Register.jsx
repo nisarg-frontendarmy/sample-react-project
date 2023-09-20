@@ -1,17 +1,28 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   const history = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
+
+    setTimeout(() => {
+      toast.success("Signup Account Successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      reset();
+    }, 100);
   };
 
   return (
@@ -32,9 +43,7 @@ const Register = () => {
           placeholder="Enter Your Full Name"
         />
         {errors.name && (
-          <span className="text-danger text-left">
-            {errors.name?.message}
-          </span>
+          <span className="text-danger text-left">{errors.name?.message}</span>
         )}
 
         <label htmlFor="email">Email</label>
@@ -52,9 +61,7 @@ const Register = () => {
           id="email"
         />
         {errors.email && (
-          <span className="text-danger text-left">
-            {errors.email?.message}
-          </span>
+          <span className="text-danger text-left">{errors.email?.message}</span>
         )}
 
         <label htmlFor="password">Password</label>
@@ -84,7 +91,10 @@ const Register = () => {
           </span>
         )}
 
-        <button className="text-black" type="submit">SignIn</button>
+        <button className="text-black" type="submit">
+          SignIn
+        </button>
+        <ToastContainer theme="dark" />
       </form>
 
       <button className="link-btn" onClick={() => history("/")}>
