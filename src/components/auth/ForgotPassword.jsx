@@ -35,7 +35,7 @@ const ForgotPassword = () => {
   return (
     <div className="Forgot-Password">
       <form className="Forgot" onSubmit={handleSubmit(onSubmit)}>
-        <h2 id="Pass1">Forgot Password</h2>
+        <h2 className="text-center">Forgot Password</h2>
         <label id="l1">Reset Password:</label>
         <input
           type="password"
@@ -51,7 +51,7 @@ const ForgotPassword = () => {
           name="resetpassword"
         />
         {errors.resetpassword && (
-          <span className="password-error ">
+          <span className="text-danger text-left">
             {errors.resetpassword.message}
           </span>
         )}
@@ -70,7 +70,7 @@ const ForgotPassword = () => {
           name="confirmpassword"
         />
         {errors.confirmpassword && (
-          <span className="password-error" style={{ color: "red" }}>
+          <span className="text-danger text-left">
             {errors.confirmpassword.message}
           </span>
         )}

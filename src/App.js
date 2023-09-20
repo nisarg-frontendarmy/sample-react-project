@@ -8,6 +8,7 @@ import SingleStudent2 from "./SingleStudent2";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import ForgotPassword from "./components/auth/ForgotPassword";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

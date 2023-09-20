@@ -32,7 +32,7 @@ const Register = () => {
           placeholder="Enter Your Full Name"
         />
         {errors.name && (
-          <span className="error">
+          <span className="text-danger text-left">
             {errors.name?.message}
           </span>
         )}
@@ -52,7 +52,7 @@ const Register = () => {
           id="email"
         />
         {errors.email && (
-          <span className="error">
+          <span className="text-danger text-left">
             {errors.email?.message}
           </span>
         )}
@@ -79,12 +79,12 @@ const Register = () => {
           id="password"
         />
         {errors.password && (
-          <span className="error">
+          <span className="text-danger text-left">
             {errors.password?.message}
           </span>
         )}
 
-        <button type="submit">SignIn</button>
+        <button className="text-black" type="submit">SignIn</button>
       </form>
 
       <button className="link-btn" onClick={() => history("/")}>

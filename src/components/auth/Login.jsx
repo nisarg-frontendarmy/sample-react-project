@@ -22,7 +22,7 @@ const Login = () => {
 
   return (
     <div className="auth-form-container">
-      <h2>Login</h2>
+      <h2 className="text-center" >Login</h2>
       <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="email">Email Address</label>
         <input
@@ -41,7 +41,7 @@ const Login = () => {
           name="email"
         />
         {errors.email && (
-          <span className="error">
+          <span className="text-danger text-left">
             {errors.email?.message}
           </span>
         )}
@@ -68,7 +68,7 @@ const Login = () => {
           name="password"
         />
         {errors.password && (
-          <span className="error">
+          <span className="text-danger text-left">
             {errors.password.message}
           </span>
         )}
@@ -81,10 +81,10 @@ const Login = () => {
       <button className="link-btn" onClick={() => history("signup")}>
         Don't have an account? Register here.
       </button>
-      <Link to="/signup" className="link">
+      <Link to="/signup" className="text-center text-white text-decoration-none">
         SignUp
       </Link>
-      <Link className="link" to="/forgotpassword">
+      <Link className="text-center text-white text-decoration-none" to="/forgotpassword">
         Forgot Password
       </Link>
     </div>

@@ -1,6 +1,6 @@
 @media screen and (min-width: 600px) {
   body {
-    text-align: center;
+    /* text-align: center; */
     min-height: 100vh;
     align-items: center;
     justify-content: center;
@@ -71,16 +71,16 @@ button {
 }
 
 /* Login Page Email Address and Password Validation  */
-.error {
+/* .error {
   color: red;
   text-align: initial;
-}
+} */
 
 /* Forgot-Password Page Error Validation  */
-.password-error {
+/* .password-error {
   color: red;
   text-align: initial;
-}
+ } */
 
 /* Student List Page - Dashboard Page */
 
@@ -180,14 +180,18 @@ td {
 .Forgot {
   border: 1px solid white;
   flex-direction: column;
-  text-align: center;
+  /* text-align: center; */
   display: flex;
   color: white;
   padding: 25px;
   width: 500px;
-  height: 390px;
-  /* margin-left: 600px; */
+  height: 480px;
+  margin-left: 120px;
 }
+
+/* .password-error {
+  text-align: initial;
+} */
 
 /* Student List Page Design */
 
@@ -246,6 +250,3 @@ td {
   font-size: larger;
 }
 
-.password-error {
-  text-align: initial;
-}

@@ -20,7 +20,7 @@ const Dashboard = () => {
           <b>Logout</b>
         </button> */}
       </span>
-      <h1>Welcome to Students Lists Page</h1>
+      <h1 className="text-center">Welcome to Students Lists Page</h1>
       <table className="table">
         <tr>
           <th>Student Id</th>
