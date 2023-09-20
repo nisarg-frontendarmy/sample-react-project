@@ -12,7 +12,7 @@ const Login = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const onSubmit = (data) => {
-    if (data.email === "user@example.com" && data.password === "Password") {
+    if (data.email === "admin@admin.com" && data.password === "Password") {
       setLoggedIn(true);
       history("dashboard");
     } else {
