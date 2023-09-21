@@ -28,7 +28,7 @@ const Register = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center mx-auto vh-100">
-      <div className="border rounded-lg p-5 text-align-center">
+      <div className="border rounded-top p-5 text-align-center">
         <div className="text-center fs-3">SignUp Your Account</div>
         <Form onSubmit={handleSubmit(onSubmit)} className="w-100">
           <Form.Group controlId="name">

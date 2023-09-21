@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import JSON from "../../students.json";
+// import { Form, Button } from "react-bootstrap";
+
 
 const Dashboard = () => {
   const history = useNavigate();
@@ -20,7 +22,7 @@ const Dashboard = () => {
           <b>Logout</b>
         </button> */}
       </span>
-      <h1 className="text-center">Welcome to Students Lists Page</h1>
+      <div className="text-center fs-3 mb-2">Welcome to Students Lists Page</div>
       <table className="table">
         <tr>
           <th>Student Id</th>

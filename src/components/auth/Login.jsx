@@ -24,10 +24,10 @@ const Login = () => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="p-5 border rounded-top d-flex flex-column align-items-center main-div">
-        <div className="text-center fs-2">Login</div>
+        <div className="text-center fs-2 text-white">Login</div>
         <Form onSubmit={handleSubmit(onSubmit)} className="w-100">
           <Form.Group controlId="email">
-            <Form.Label className="mb-0">Email Address</Form.Label>
+            <Form.Label className="mb-0 text-white">Email Address</Form.Label>
             <Form.Control
               {...register("email", {
                 required: "Please enter email",
@@ -48,7 +48,7 @@ const Login = () => {
           </Form.Group>
 
           <Form.Group controlId="password">
-            <Form.Label className="mb-0">Password</Form.Label>
+            <Form.Label className="mb-0 text-white">Password</Form.Label>
             <Form.Control
               {...register("password", {
                 required: "Please enter a password",
@@ -76,7 +76,7 @@ const Login = () => {
           </Form.Group>
 
           {!loggedIn ? (
-            <Button variant="success primary"  size="lg" type="submit" className="mx-auto d-flex justify-content-center">
+            <Button variant="success primary"  size="lg" type="submit" className="mx-auto d-flex justify-content-center text-white">
               Log In
             </Button>
           ) : (
@@ -84,13 +84,13 @@ const Login = () => {
           )}
         </Form>
 
-        <Link className="text-decoration-none text-white m-2" to="/signup">
+        <Link className="text-decoration-none  m-2 text-white" to="/signup">
           Don't have an account? Register here.
         </Link>
-        <Link to="/signup" className="text-white text-decoration-none">
+        <Link to="/signup" className=" text-decoration-none text-white">
           Sign Up
         </Link>
-        <Link to="/forgotpassword" className="text-white text-decoration-none">
+        <Link to="/forgotpassword" className=" text-decoration-none text-white">
           Forgot Password
         </Link>
       </div>

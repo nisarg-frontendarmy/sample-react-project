@@ -36,7 +36,7 @@ const ForgotPassword = () => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 w-auto d-block">
       <Form
-        className="border rounded-lg p-5 text-left d-block"
+        className="border rounded-top p-5 text-left d-block"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="text-center fs-3 ">Forgot Password</div>
