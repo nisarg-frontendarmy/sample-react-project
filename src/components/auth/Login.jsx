@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { Form, Button } from "react-bootstrap";
 
 const Login = () => {
   const {
@@ -21,72 +22,78 @@ const Login = () => {
   };
 
   return (
-    <div className="auth-form-container">
-      <h2 className="text-center" >Login</h2>
-      <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="email">Email Address</label>
-        <input
-          {...register("email", {
-            required: "Please enter email",
-            pattern: {
-              value:
-                /^[A-Za-z]+[A-Za-z0-9._%+-]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/,
-              message: "Invalid Email Address",
-            },
-          })}
-          render={({ field }) => <input type="text" {...field} />}
-          type="email"
-          placeholder="Enter Your Email"
-          id="email"
-          name="email"
-        />
-        {errors.email && (
-          <span className="text-danger text-left">
-            {errors.email?.message}
-          </span>
-        )}
-        <label htmlFor="password">Password</label>
-        <input
-          {...register("password", {
-            required: "Please enter a password",
-            minLength: {
-              value: 8,
-              message: "Password must be at least 8 characters",
-            },
-            maxLength: {
-              value: 32,
-              message: "Password must be at most 32 characters",
-            },
-            pattern: {
-              value: /^(?=.*[A-Z]).*$/,
-              message: "Password must start with an uppercase letter",
-            },
-          })}
-          type="password"
-          placeholder="********"
-          id="password"
-          name="password"
-        />
-        {errors.password && (
-          <span className="text-danger text-left">
-            {errors.password.message}
-          </span>
-        )}
-        {!loggedIn ? (
-          <button className="log1" type="submit">Log In</button>
-        ) : (
-          <p>You are Logged In.</p>
-        )}
-      </form>
-      <button className="link-btn" onClick={() => history("signup")}>
-        Don't have an account? Register here.
-      </button>
-      <Link to="/signup" className="text-center text-white text-decoration-none">
-        SignUp
-      </Link>
-      <Link className="text-center text-white text-decoration-none" to="/forgotpassword">
-        Forgot Password
-      </Link>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="p-5 border rounded-top d-flex flex-column align-items-center main-div">
+        <div className="text-center fs-2">Login</div>
+        <Form onSubmit={handleSubmit(onSubmit)} className="w-100">
+          <Form.Group controlId="email">
+            <Form.Label className="mb-0">Email Address</Form.Label>
+            <Form.Control
+              {...register("email", {
+                required: "Please enter email",
+                pattern: {
+                  value:
+                    /^[A-Za-z]+[A-Za-z0-9._%+-]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/,
+                  message: "Invalid Email Address",
+                },
+              })}
+              type="email"
+              placeholder="Enter Your Email"
+            />
+            {errors.email && (
+              <span className="text-danger text-left">
+                {errors.email?.message}
+              </span>
+            )}
+          </Form.Group>
+
+          <Form.Group controlId="password">
+            <Form.Label className="mb-0">Password</Form.Label>
+            <Form.Control
+              {...register("password", {
+                required: "Please enter a password",
+                minLength: {
+                  value: 8,
+                  message: "Password must be at least 8 characters",
+                },
+                maxLength: {
+                  value: 32,
+                  message: "Password must be at most 32 characters",
+                },
+                pattern: {
+                  value: /^(?=.*[A-Z]).*$/,
+                  message: "Password must start with an uppercase letter",
+                },
+              })}
+              type="password"
+              placeholder="********"
+            />
+            {errors.password && (
+              <span className="text-danger text-left">
+                {errors.password.message}
+              </span>
+            )}
+          </Form.Group>
+
+          {!loggedIn ? (
+            <Button variant="success primary"  size="lg" type="submit" className="mx-auto d-flex justify-content-center">
+              Log In
+            </Button>
+          ) : (
+            <p>You are Logged In.</p>
+          )}
+        </Form>
+
+        <Link className="text-decoration-none text-white m-2" to="/signup">
+          Don't have an account? Register here.
+        </Link>
+        <Link to="/signup" className="text-white text-decoration-none">
+          Sign Up
+        </Link>
+        <Link to="/forgotpassword" className="text-white text-decoration-none">
+          Forgot Password
+        </Link>
+      </div>
     </div>
   );
 };

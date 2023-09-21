@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Form, Button } from "react-bootstrap";
 
 const ForgotPassword = () => {
   const {
@@ -33,54 +34,61 @@ const ForgotPassword = () => {
   const password = watch("resetpassword");
 
   return (
-    <div className="Forgot-Password">
-      <form className="Forgot" onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="text-center">Forgot Password</h2>
-        <label id="l1">Reset Password:</label>
-        <input
-          type="password"
-          {...register("resetpassword", {
-            required: "Please Enter The New Password",
-            minLength: {
-              value: 6,
-              message: "Password must be at least 6 characters long",
-            },
-          })}
-          placeholder="Enter Your New Password"
-          id="Reset"
-          name="resetpassword"
-        />
-        {errors.resetpassword && (
-          <span className="text-danger text-left">
-            {errors.resetpassword.message}
-          </span>
-        )}
+    <div className="d-flex justify-content-center align-items-center vh-100 w-auto d-block">
+      <Form
+        className="border rounded-lg p-5 text-left d-block"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <div className="text-center fs-3 ">Forgot Password</div>
+        <Form.Group controlId="Reset" className="w-100">
+          <Form.Label className="mb-0 w-20">Reset Password:</Form.Label>
+          <Form.Control
+            type="password"
+            {...register("resetpassword", {
+              required: "Please Enter The New Password",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters long",
+              },
+            })}
+            placeholder="Enter Your New Password"
+          />
+          {errors.resetpassword && (
+            <span className="text-danger text-left">
+              {errors.resetpassword.message}
+            </span>
+          )}
+        </Form.Group>
 
-        <label>Confirm Password:</label>
+        <Form.Group controlId="Confirm">
+          <Form.Label className="mb-0">Confirm Password:</Form.Label>
+          <Form.Control
+            className="l1"
+            type="password"
+            {...register("confirmpassword", {
+              required: "Please Enter The Confirm Password",
+              validate: (value) =>
+                value === password || "Passwords do not match",
+            })}
+            placeholder="Enter Your Confirm Password"
+          />
+          {errors.confirmpassword && (
+            <span className="text-danger text-left">
+              {errors.confirmpassword.message}
+            </span>
+          )}
+        </Form.Group>
 
-        <input
-          className="l1"
-          type="password"
-          {...register("confirmpassword", {
-            required: "Please Enter The Confirm Password",
-            validate: (value) => value === password || "Passwords do not match",
-          })}
-          placeholder="Enter Your Confirm Password"
-          id="Confrim"
-          name="confirmpassword"
-        />
-        {errors.confirmpassword && (
-          <span className="text-danger text-left">
-            {errors.confirmpassword.message}
-          </span>
-        )}
-
-        <button id="btn2" type="submit">
+        <Button
+          variant="success"
+          className="mx-auto d-flex justify-content-center"
+          type="submit"
+        >
           Reset Password
-        </button>
+        </Button>
 
         <ToastContainer theme="dark" />
-      </form>
+      </Form>
     </div>
   );
 };
