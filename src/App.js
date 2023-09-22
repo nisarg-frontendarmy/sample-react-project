@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./components/dashboard/Dashboard";
 import Student from "./Student";
-import SingleStudent from "./SingleStudent";
+import SingleStudent from "./components/dashboard/SingleStudent";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import ForgotPassword from "./components/auth/ForgotPassword";

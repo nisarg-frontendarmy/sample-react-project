@@ -43,6 +43,7 @@ const ForgotPassword = () => {
         <Form.Group controlId="Reset" className="w-100">
           <Form.Label className="w-20 mt-4">Reset Password:</Form.Label>
           <Form.Control
+          className="mt-0"
             type="password"
             {...register("resetpassword", {
               required: "Please Enter The New Password",
@@ -63,7 +64,7 @@ const ForgotPassword = () => {
         <Form.Group controlId="Confirm">
           <Form.Label className="mt-3">Confirm Password:</Form.Label>
           <Form.Control
-            className="l1"
+          className="mt-0"
             type="password"
             {...register("confirmpassword", {
               required: "Please Enter The Confirm Password",

@@ -7,29 +7,34 @@ import Button from "react-bootstrap/Button";
 const Dashboard = () => {
   const history = useNavigate();
 
+  const listItemStyle = {
+    backgroundColor: "transparent",
+    border: "1px solid black",
+  };
+
   return (
-    <div className="text-center w-100">
+    <div className="text-center w-50 w-100">
       <div className="fs-2 mb-2">Welcome to Students Lists Page</div>
-      <Table variant="secondary">
+      <Table className="w-100">
         <thead>
           <tr>
-            <th>Student Id</th>
-            <th>Student Name</th>
-            <th>Department</th>
-            <th>Course Name</th>
-            <th>Name Of Institute</th>
-            <th>View Full Details</th>
+            <th style={listItemStyle}>Student Id</th>
+            <th style={listItemStyle}>Student Name</th>
+            <th style={listItemStyle}>Department</th>
+            <th style={listItemStyle}>Course Name</th>
+            <th style={listItemStyle}>Name Of Institute</th>
+            <th style={listItemStyle}>View Full Details</th>
           </tr>
         </thead>
         <tbody>
           {JSON.Dashboard.map((res, index) => (
             <tr key={index}>
-              <td>{res.studentId}</td>
-              <td>{res.studentName}</td>
-              <td>{res.deparment}</td>
-              <td>{res.courseName}</td>
-              <td>{res.instituteName}</td>
-              <td>
+              <td style={listItemStyle}>{res.studentId}</td>
+              <td style={listItemStyle}>{res.studentName}</td>
+              <td style={listItemStyle}>{res.department}</td>
+              <td style={listItemStyle}>{res.courseName}</td>
+              <td style={listItemStyle}>{res.instituteName}</td>
+              <td style={listItemStyle}>
                 <Button
                   variant="success"
                   className="mx-auto d-flex justify-content-center"

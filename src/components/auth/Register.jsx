@@ -34,6 +34,7 @@ const Register = () => {
           <Form.Group controlId="name">
             <Form.Label className="mt-2">Full Name</Form.Label>
             <Form.Control
+            className="mt-0"
               {...register("name", {
                 required: "Please enter your full name",
                 pattern: {
@@ -54,6 +55,7 @@ const Register = () => {
           <Form.Group controlId="email">
             <Form.Label className="mt-3">Email</Form.Label>
             <Form.Control
+            className="mt-0"
               {...register("email", {
                 required: "Please enter your email",
                 pattern: {
@@ -73,8 +75,9 @@ const Register = () => {
           </Form.Group>
 
           <Form.Group controlId="password">
-            <Form.Label className="mt-3">Password</Form.Label>
+            <Form.Label className="mt-3 ">Password</Form.Label>
             <Form.Control
+            className="mt-0"
               {...register("password", {
                 required: "Please enter your password",
                 minLength: {

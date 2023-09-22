@@ -1,7 +1,7 @@
 @media screen and (min-width: 600px) {
   body {
     min-height: 100vh;
-    /* align-items: center; */
+    align-items: center;
     justify-content: center;
     color: white;
     background-image: linear-gradient(79deg, #7439db, #cd72c2 48%, #b85f1f);
@@ -9,16 +9,16 @@
 }
 
 /* React-Bootstrap:- Login Page Set width */
-/* .main-div{
+.main-div{
   width: 30%;
-} */
+}
 
-/* .auth-form-container,
+.auth-form-container,
 .login-form,
 .register-form {
   display: flex;
   flex-direction: column;
-} */
+}
 
 
 /* .auth-form-container {
@@ -33,26 +33,27 @@
 } */
 
 
-/* label {
+label {
   text-align: left;
   padding: 0.25rem 0;
-} */
+}
 
-/* input {
+input {
   margin: 0.6rem 0;
   padding: 1rem;
   border: none;
   border-radius: 10px;
   ;
-} */
+}
 
-/* button {
+button {
   border: none;
+  /* background-color: white; */
   padding: 20px;
   border-radius: 10px;
   cursor: pointer;
   color: #7439db;
-} */
+}
 
 /* .link-btn {
   background: none;
@@ -60,7 +61,7 @@
   text-decoration: none;
 } */
 
-/* .link {
+.link {
   background: none;
   color: white;
   text-decoration: none;
@@ -71,7 +72,7 @@
   font-size: medium;
   font-family: Inter,Hellvetica,sans-serif;
   margin-top: 10px;
-} */
+}
 
 /* Login Page Email Address and Password Validation  */
 /* .error {
@@ -96,6 +97,7 @@
 } */
 
 /* Dashboard : GO To Student Page Button */
+
 /* .btn-1 {
   color: black;
   background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #d0bbad);
@@ -107,7 +109,7 @@
   cursor: pointer;
 } */
 
-/* .btn2 {
+.btn2 {
   color: white;
   font-size: large;
   font-family: Inter, Hellvetica, sans-serif;
@@ -118,7 +120,7 @@ h1 {
   color: black;
   font-family: Inter, Hellvetica, sans-serif;
   margin-top: 10px;
-} */
+}
 
 
 /* .table {
@@ -138,15 +140,15 @@ h1 {
   border-right: 1px solid rgba(70, 16, 16, 0.441);
   border-bottom: 1px solid rgba(70, 16, 16, 0.441);
   padding: 10px;
-}
+} */
 
 
-td {
+/* td {
   border-right: 1px solid rgba(70, 16, 16, 0.441);
   border-bottom: 1px solid rgba(70, 16, 16, 0.441);
   padding: 25px;
   font-size: medium;
-}
+} */
 
 #btn-2 {
   color: black;
@@ -157,14 +159,14 @@ td {
   margin-left: 124vh;
   font-size: medium;
   font-family: Inter, Hellvetica, sans-serif;
-} */
+}
 
 /* Forgot Password */
 
 
-/* #Pass1 {
+#Pass1 {
   color: white;
-} */
+}
 
 /* #btn2 {
   margin-top: 25px;
@@ -196,7 +198,7 @@ td {
 } */
 
 /* Student List Page Design */
-/* 
+
 #heading {
   margin-top: -350px;
   color: black;
@@ -213,17 +215,17 @@ td {
 
 /* Student:  Style the Button */
 
-/* #btn0 {
+#btn0 {
   padding: 15px 35px;
   color: white;
   font-family: Inter, Hellvetica, sans-serif;
   background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #7d471f);
   font-size: medium;
-} */
+}
 
 
 /* Single Student : Style the elements */
-/* .para1 {
+.para1 {
   position: fixed;
   border: 2px solid black;
   text-align: left;
@@ -233,15 +235,15 @@ td {
   font-style: italic;
   margin-top: 30vh;
   width: 900px;
-  background-color: #df9b6a transparent;
+  /* background-color: #df9b6a transparent; */
   color: #362f29;
-} */
+}
 
 /* .List-items {
   align-items: center;
 } */
 
-/* .List-items li {
+.List-items li {
   margin-bottom: 10px;
   font-family: Inter, Hellvetica, sans-serif;
   font-size: large;
@@ -250,7 +252,7 @@ td {
 #heading-1 {
   font-family: Inter, Hellvetica, sans-serif;
   font-size: larger;
-} */
+}
 
 
 

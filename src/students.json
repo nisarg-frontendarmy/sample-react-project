@@ -3,7 +3,7 @@
   {
     "studentId": "1",
     "studentName": "Emily Devis",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Cyber Secuirty",
     "instituteName":"Gujarat Power Engineering and Research Institute",
     "action": "Clicked Button 1"
@@ -11,84 +11,84 @@
   {
     "studentId": "2",
     "studentName": "Michael Johnshon",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Python",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "3",
     "studentName": "Sarah Brown",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "JavaScript",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "4",
     "studentName": "David Wilson",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Php",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "5",
     "studentName": "Jessica Lee",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Fundamental",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "6",
     "studentName": "Emma Taylor",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Cascading Style Sheet",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "7",
     "studentName": "Sophia White",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Graphics Designer",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "8",
     "studentName": "James Anderson",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Android Developer",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "9",
     "studentName": "Ava Martinez",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Game Developer",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "10",
     "studentName": "Alexander Perez",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Java Develper",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "11",
     "studentName": "Mia Davis",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Web Developer",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "12",
     "studentName": "Ethan Rodriguez",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Php Developer",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   },
   {
     "studentId": "13",
     "studentName": "Daniel Turner",
-    "deparment": "Computer Science",
+    "department": "Computer Science",
     "courseName": "Ethical Hacker",
     "instituteName":"Gujarat Power Engineering and Research Institute"
   }
