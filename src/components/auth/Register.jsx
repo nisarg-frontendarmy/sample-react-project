@@ -30,9 +30,9 @@ const Register = () => {
     <div className="d-flex justify-content-center align-items-center mx-auto vh-100">
       <div className="border rounded-top p-5 text-align-center">
         <div className="text-center fs-3">SignUp Your Account</div>
-        <Form onSubmit={handleSubmit(onSubmit)} className="w-100">
+        <Form onSubmit={handleSubmit(onSubmit)} className="w-100 mt-4">
           <Form.Group controlId="name">
-            <Form.Label className="mb-0">Full Name</Form.Label>
+            <Form.Label className="mt-2">Full Name</Form.Label>
             <Form.Control
               {...register("name", {
                 required: "Please enter your full name",
@@ -52,7 +52,7 @@ const Register = () => {
           </Form.Group>
 
           <Form.Group controlId="email">
-            <Form.Label className="mb-0">Email</Form.Label>
+            <Form.Label className="mt-3">Email</Form.Label>
             <Form.Control
               {...register("email", {
                 required: "Please enter your email",
@@ -73,7 +73,7 @@ const Register = () => {
           </Form.Group>
 
           <Form.Group controlId="password">
-            <Form.Label className="mb-0">Password</Form.Label>
+            <Form.Label className="mt-3">Password</Form.Label>
             <Form.Control
               {...register("password", {
                 required: "Please enter your password",
@@ -102,7 +102,7 @@ const Register = () => {
 
           <Button
             variant="success primary"
-            className="mx-auto d-flex justify-content-center"
+            className="mx-auto d-flex justify-content-center mt-3"
             type="submit"
           >
             Sign In

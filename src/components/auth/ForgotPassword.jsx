@@ -34,14 +34,14 @@ const ForgotPassword = () => {
   const password = watch("resetpassword");
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 w-auto d-block">
+    <div className="d-flex justify-content-center align-items-center vh-100 w-auto">
       <Form
         className="border rounded-top p-5 text-left d-block"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="text-center fs-3 ">Forgot Password</div>
+        <div className="text-center fs-3">Forgot Password</div>
         <Form.Group controlId="Reset" className="w-100">
-          <Form.Label className="mb-0 w-20">Reset Password:</Form.Label>
+          <Form.Label className="w-20 mt-4">Reset Password:</Form.Label>
           <Form.Control
             type="password"
             {...register("resetpassword", {
@@ -61,7 +61,7 @@ const ForgotPassword = () => {
         </Form.Group>
 
         <Form.Group controlId="Confirm">
-          <Form.Label className="mb-0">Confirm Password:</Form.Label>
+          <Form.Label className="mt-3">Confirm Password:</Form.Label>
           <Form.Control
             className="l1"
             type="password"
@@ -81,7 +81,7 @@ const ForgotPassword = () => {
 
         <Button
           variant="success"
-          className="mx-auto d-flex justify-content-center"
+          className="mx-auto d-flex justify-content-center mt-4"
           type="submit"
         >
           Reset Password

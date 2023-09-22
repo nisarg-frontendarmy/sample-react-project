@@ -25,10 +25,11 @@ const Login = () => {
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="p-5 border rounded-top d-flex flex-column align-items-center main-div">
         <div className="text-center fs-2 text-white">Login</div>
-        <Form onSubmit={handleSubmit(onSubmit)} className="w-100">
+        <Form onSubmit={handleSubmit(onSubmit)} className="w-100 m-4">
           <Form.Group controlId="email">
-            <Form.Label className="mb-0 text-white">Email Address</Form.Label>
+            <Form.Label className="text-white">Email Address</Form.Label>
             <Form.Control
+            className="mb-2"
               {...register("email", {
                 required: "Please enter email",
                 pattern: {
@@ -48,7 +49,7 @@ const Login = () => {
           </Form.Group>
 
           <Form.Group controlId="password">
-            <Form.Label className="mb-0 text-white">Password</Form.Label>
+            <Form.Label className="mt-2 text-white">Password</Form.Label>
             <Form.Control
               {...register("password", {
                 required: "Please enter a password",
@@ -76,7 +77,7 @@ const Login = () => {
           </Form.Group>
 
           {!loggedIn ? (
-            <Button variant="success primary"  size="lg" type="submit" className="mx-auto d-flex justify-content-center text-white">
+            <Button variant="success primary"  size="lg" type="submit" className="mx-auto d-flex justify-content-center text-white mt-4">
               Log In
             </Button>
           ) : (

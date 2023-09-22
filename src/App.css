@@ -9,16 +9,16 @@
 }
 
 /* React-Bootstrap:- Login Page Set width */
-.main-div{
+/* .main-div{
   width: 30%;
-}
+} */
 
-.auth-form-container,
+/* .auth-form-container,
 .login-form,
 .register-form {
   display: flex;
   flex-direction: column;
-}
+} */
 
 
 /* .auth-form-container {
@@ -33,27 +33,26 @@
 } */
 
 
-label {
+/* label {
   text-align: left;
   padding: 0.25rem 0;
-}
+} */
 
-input {
+/* input {
   margin: 0.6rem 0;
   padding: 1rem;
   border: none;
   border-radius: 10px;
   ;
-}
+} */
 
-button {
+/* button {
   border: none;
-  /* background-color: white; */
   padding: 20px;
   border-radius: 10px;
   cursor: pointer;
   color: #7439db;
-}
+} */
 
 /* .link-btn {
   background: none;
@@ -61,7 +60,7 @@ button {
   text-decoration: none;
 } */
 
-.link {
+/* .link {
   background: none;
   color: white;
   text-decoration: none;
@@ -72,7 +71,7 @@ button {
   font-size: medium;
   font-family: Inter,Hellvetica,sans-serif;
   margin-top: 10px;
-}
+} */
 
 /* Login Page Email Address and Password Validation  */
 /* .error {
@@ -108,10 +107,9 @@ button {
   cursor: pointer;
 } */
 
-.btn2 {
+/* .btn2 {
   color: white;
   font-size: large;
-  /* margin-top: -550px; */
   font-family: Inter, Hellvetica, sans-serif;
   background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #a15a28);
 }
@@ -120,7 +118,7 @@ h1 {
   color: black;
   font-family: Inter, Hellvetica, sans-serif;
   margin-top: 10px;
-}
+} */
 
 
 /* .table {
@@ -136,7 +134,7 @@ h1 {
 
 
 
-th {
+/* th {
   border-right: 1px solid rgba(70, 16, 16, 0.441);
   border-bottom: 1px solid rgba(70, 16, 16, 0.441);
   padding: 10px;
@@ -159,14 +157,14 @@ td {
   margin-left: 124vh;
   font-size: medium;
   font-family: Inter, Hellvetica, sans-serif;
-}
+} */
 
 /* Forgot Password */
 
 
-#Pass1 {
+/* #Pass1 {
   color: white;
-}
+} */
 
 /* #btn2 {
   margin-top: 25px;
@@ -198,7 +196,7 @@ td {
 } */
 
 /* Student List Page Design */
-
+/* 
 #heading {
   margin-top: -350px;
   color: black;
@@ -215,13 +213,13 @@ td {
 
 /* Student:  Style the Button */
 
-#btn0 {
+/* #btn0 {
   padding: 15px 35px;
   color: white;
   font-family: Inter, Hellvetica, sans-serif;
   background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #7d471f);
   font-size: medium;
-}
+} */
 
 
 /* Single Student : Style the elements */
