@@ -1,14 +1,11 @@
-// import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./components/dashboard/Dashboard";
 import Student from "./Student";
 import SingleStudent from "./SingleStudent";
-import SingleStudent1 from "./SingleStudent1";
-import SingleStudent2 from "./SingleStudent2";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import ForgotPassword from "./components/auth/ForgotPassword";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
@@ -21,8 +18,6 @@ function App() {
         <Route path="/singlestudent" element={<SingleStudent />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/singlestudent1" element={<SingleStudent1 />} />
-        <Route path="/singleStudent2" element={<SingleStudent2 />} />
         <Route path="/students" element={<students />} />
       </Routes>
     </BrowserRouter>

@@ -1,8 +1,7 @@
 @media screen and (min-width: 600px) {
   body {
-    /* text-align: center; */
     min-height: 100vh;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     color: white;
     background-image: linear-gradient(79deg, #7439db, #cd72c2 48%, #b85f1f);
@@ -89,16 +88,16 @@ button {
 
 /* Student List Page - Dashboard Page */
 
-.Dashboard-Table {
+/* .Dashboard-Table {
   text-align: center;
   display: flex;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-}
+} */
 
 /* Dashboard : GO To Student Page Button */
-.btn-1 {
+/* .btn-1 {
   color: black;
   background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #d0bbad);
   display: flex;
@@ -107,7 +106,7 @@ button {
   font-family: Inter, Hellvetica, sans-serif;
   font-size: medium;
   cursor: pointer;
-}
+} */
 
 .btn2 {
   color: white;
@@ -124,7 +123,7 @@ h1 {
 }
 
 
-.table {
+/* .table {
   width: 180vh;
   height: 50vh;
   margin-left: 80px;
@@ -133,7 +132,7 @@ h1 {
   font-size: large;
   font-family: Inter, Hellvetica, sans-serif;
   border: 2px solid rgba(70, 16, 16, 0.441);
-}
+} */
 
 
 
@@ -226,7 +225,7 @@ td {
 
 
 /* Single Student : Style the elements */
-.para1 {
+/* .para1 {
   position: fixed;
   border: 2px solid black;
   text-align: left;
@@ -238,13 +237,13 @@ td {
   width: 900px;
   background-color: #df9b6a transparent;
   color: #362f29;
-}
+} */
 
 /* .List-items {
   align-items: center;
 } */
 
-.List-items li {
+/* .List-items li {
   margin-bottom: 10px;
   font-family: Inter, Hellvetica, sans-serif;
   font-size: large;
@@ -253,7 +252,7 @@ td {
 #heading-1 {
   font-family: Inter, Hellvetica, sans-serif;
   font-size: larger;
-}
+} */
 
 
 
