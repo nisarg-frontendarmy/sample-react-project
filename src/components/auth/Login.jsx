@@ -29,7 +29,7 @@ const Login = () => {
           <Form.Group controlId="email">
             <Form.Label className="text-white">Email Address</Form.Label>
             <Form.Control
-            className="mt-0"
+              className="mt-0"
               {...register("email", {
                 required: "Please enter email",
                 pattern: {
@@ -51,7 +51,7 @@ const Login = () => {
           <Form.Group controlId="password">
             <Form.Label className="mt-2 text-white">Password</Form.Label>
             <Form.Control
-            className="mt-0"
+              className="mt-0"
               {...register("password", {
                 required: "Please enter a password",
                 minLength: {
@@ -78,7 +78,12 @@ const Login = () => {
           </Form.Group>
 
           {!loggedIn ? (
-            <Button variant="success" size="lg" type="submit" className="mx-auto d-flex justify-content-center text-white mt-4">
+            <Button
+              variant="success"
+              size="lg"
+              type="submit"
+              className="mx-auto d-flex justify-content-center text-white mt-4"
+            >
               Log In
             </Button>
           ) : (
