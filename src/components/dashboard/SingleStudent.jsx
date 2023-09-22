@@ -18,7 +18,7 @@ function SingleStudent(props) {
   };
 
   return (
-    <div className="border w-50 m-5 p-2">
+    <div className="border  w-50 m-5 p-2">
       <div className="text-left fs-2 text-white">Student Information:</div>
       <ListGroup>
         <ListGroup.Item style={listItemStyle}>Id : {data.studentId}</ListGroup.Item>
