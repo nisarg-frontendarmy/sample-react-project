@@ -25,8 +25,8 @@ const Login = () => {
     <div className="d-flex vh-100 main-div1">
       <div>
         <img
-          className="img-fluid d-flex rounded-top-left rounded-bottom-left align-items-center vh-100"
-          src="/images/loginmain.jpg"
+          className="img-fluid d-flex rounded-top-left rounded-bottom-left align-items-center w-100 vh-100"
+          src="/images/loginpage.JPG"
           alt="loginpage"
         />
       </div>
@@ -38,6 +38,7 @@ const Login = () => {
           <Form.Group controlId="email">
             <Form.Label className="text-black">Email Address</Form.Label>
             <Form.Control
+              className="mt-0"
               {...register("email", {
                 required: "Please enter email",
                 pattern: {
