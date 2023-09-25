@@ -38,7 +38,6 @@ const Login = () => {
           <Form.Group controlId="email">
             <Form.Label className="text-black">Email Address</Form.Label>
             <Form.Control
-              className="mt-0"
               {...register("email", {
                 required: "Please enter email",
                 pattern: {

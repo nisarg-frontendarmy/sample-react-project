@@ -34,9 +34,9 @@ const ForgotPassword = () => {
   const password = watch("resetpassword");
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 w-auto">
+    <div className="d-flex justify-content-center align-items-center vh-100 main-div7">
       <Form
-        className="border rounded-top p-5 text-left d-block"
+        className="border border-black w-50 vh-50 rounded-top p-5 text-left d-block"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="text-center fs-3">Forgot Password</div>
