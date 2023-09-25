@@ -18,15 +18,15 @@ function SingleStudent(props) {
   };
 
   return (
-    <div className="border  w-50 m-5 p-2">
-      <div className="text-left fs-2 text-white">Student Information:</div>
+    <div className="border border-black w-50 m-5">
+      <div className="text-left fs-2 text-white bg-dark">Student Information:</div>
       <ListGroup>
-        <ListGroup.Item style={listItemStyle}>Id : {data.studentId}</ListGroup.Item>
-        <ListGroup.Item style={listItemStyle}>Name : {data.studentName}</ListGroup.Item>
-        <ListGroup.Item style={listItemStyle}>Department : {data.department}</ListGroup.Item>
-        <ListGroup.Item style={listItemStyle}>Course Name : {data.courseName}</ListGroup.Item>
-        <ListGroup.Item style={listItemStyle}>Name of Institute : {data.instituteName}</ListGroup.Item>
-        <ListGroup.Item style={listItemStyle}>School Name : Shree N.V Patel Vidhymandir : {data.SchoolName}</ListGroup.Item>
+        <ListGroup.Item className="text-black" style={listItemStyle}>Id : {data.studentId}</ListGroup.Item>
+        <ListGroup.Item className="text-black" style={listItemStyle}>Name : {data.studentName}</ListGroup.Item>
+        <ListGroup.Item className="text-black" style={listItemStyle}>Department : {data.department}</ListGroup.Item>
+        <ListGroup.Item className="text-black" style={listItemStyle}>Course Name : {data.courseName}</ListGroup.Item>
+        <ListGroup.Item className="text-black" style={listItemStyle}>Name of Institute : {data.instituteName}</ListGroup.Item>
+        <ListGroup.Item className="text-black" style={listItemStyle}>School Name : Shree N.V Patel Vidhymandir : {data.SchoolName}</ListGroup.Item>
       </ListGroup>
     </div>
   );

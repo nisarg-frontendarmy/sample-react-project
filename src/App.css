@@ -1,4 +1,4 @@
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   body {
     min-height: 100vh;
     align-items: center;
@@ -6,11 +6,42 @@
     color: white;
     background-image: linear-gradient(79deg, #7439db, #cd72c2 48%, #b85f1f);
   } 
-}
+} */
 
 /* React-Bootstrap:- Login Page Set width */
-.main-div{
+/* .main-div1 {
+  background-color: #1e1e1e;
+} */
+
+/* Login Page - react Bootstrap Implement */
+.main-div2{
   width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 90px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+}
+.main-div3 {
+  background-image: linear-gradient(79deg, #7439db, #7439db 50%, #b85f1f);
+}
+
+/* Signup Page react-bootstrap */
+.main-div4 {
+  background-color: rgba(255, 255, 255, 0.5);;
+}
+
+.main-div5 {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 300px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 10px;
 }
 
 .auth-form-container,

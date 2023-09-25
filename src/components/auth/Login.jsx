@@ -22,12 +22,21 @@ const Login = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <div className="p-5 border rounded-top d-flex flex-column align-items-center main-div">
-        <div className="text-center fs-2 text-white">Login</div>
+    <div className="d-flex vh-100 main-div1">
+      <div>
+        <img
+          className="img-fluid d-flex rounded-top-left rounded-bottom-left align-items-center vh-100"
+          src="/images/loginmain.jpg"
+          alt="loginpage"
+        />
+      </div>
+      <div className=" border border-black p-5 flex-column align-items-center main-div2">
+        <div className="text-center fs-2 mb-3 text-black">
+          Login to your Account
+        </div>
         <Form onSubmit={handleSubmit(onSubmit)} className="w-100 m-3">
           <Form.Group controlId="email">
-            <Form.Label className="text-white">Email Address</Form.Label>
+            <Form.Label className="text-black">Email Address</Form.Label>
             <Form.Control
               className="mt-0"
               {...register("email", {
@@ -49,7 +58,7 @@ const Login = () => {
           </Form.Group>
 
           <Form.Group controlId="password">
-            <Form.Label className="mt-2 text-white">Password</Form.Label>
+            <Form.Label className="mt-2 text-black">Password</Form.Label>
             <Form.Control
               className="mt-0"
               {...register("password", {
@@ -82,7 +91,7 @@ const Login = () => {
               variant="success"
               size="lg"
               type="submit"
-              className="mx-auto d-flex justify-content-center text-white mt-4"
+              className="mx-auto d-flex justify-content-center text-black mt-4"
             >
               Log In
             </Button>
@@ -91,13 +100,13 @@ const Login = () => {
           )}
         </Form>
 
-        <Link className="text-decoration-none  m-2 text-white" to="/signup">
+        <Link className="text-decoration-none  m-2 text-black" to="/signup">
           Don't have an account? Register here.
         </Link>
-        <Link to="/signup" className=" text-decoration-none text-white">
+        <Link to="/signup" className=" text-decoration-none text-black">
           Sign Up
         </Link>
-        <Link to="/forgotpassword" className=" text-decoration-none text-white">
+        <Link to="/forgotpassword" className=" text-decoration-none text-black">
           Forgot Password
         </Link>
       </div>

@@ -27,14 +27,25 @@ const Register = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center mx-auto vh-100">
-      <div className="border rounded-top p-5 text-align-center">
-        <div className="text-center fs-3">SignUp Your Account</div>
+    <div className="d-flex vh-100 main-div1 main-div4">
+      <>
+        <div>
+          <img
+            src="/images/singupmain2.JPG"
+            className="w-100 vh-100"
+            alt="signup"
+          />
+        </div>
+      </>
+      <div className="border border-black p-5  flex-column align-items-center main-div5">
+        <div className="text-center fs-2 mb-3 text-black">
+          SignUp Your Account
+        </div>
         <Form onSubmit={handleSubmit(onSubmit)} className="w-100 mt-4">
           <Form.Group controlId="name">
             <Form.Label className="mt-2">Full Name</Form.Label>
             <Form.Control
-            className="mt-0"
+              className="mt-0"
               {...register("name", {
                 required: "Please enter your full name",
                 pattern: {
@@ -55,7 +66,7 @@ const Register = () => {
           <Form.Group controlId="email">
             <Form.Label className="mt-3">Email</Form.Label>
             <Form.Control
-            className="mt-0"
+              className="mt-0"
               {...register("email", {
                 required: "Please enter your email",
                 pattern: {
@@ -77,7 +88,7 @@ const Register = () => {
           <Form.Group controlId="password">
             <Form.Label className="mt-3 ">Password</Form.Label>
             <Form.Control
-            className="mt-0"
+              className="mt-0"
               {...register("password", {
                 required: "Please enter your password",
                 minLength: {
@@ -114,7 +125,7 @@ const Register = () => {
         </Form>
 
         <Link
-          className="text-decoration-none text-white mx-auto d-flex justify-content-center m-3"
+          className="text-decoration-none text-black mx-auto d-flex justify-content-center m-3"
           to="/"
         >
           Already have an account? Login here.

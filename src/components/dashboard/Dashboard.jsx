@@ -14,16 +14,16 @@ const Dashboard = () => {
 
   return (
     <div className="text-center w-50 w-100">
-      <div className="fs-2 mb-2">Welcome to Students Lists Page</div>
+      <div className="fs-2 mb-4">Welcome to Students Lists Page</div>
       <Table className="w-100">
         <thead>
-          <tr>
-            <th style={listItemStyle}>Student Id</th>
-            <th style={listItemStyle}>Student Name</th>
-            <th style={listItemStyle}>Department</th>
-            <th style={listItemStyle}>Course Name</th>
-            <th style={listItemStyle}>Name Of Institute</th>
-            <th style={listItemStyle}>View Full Details</th>
+          <tr className="bg-dark">
+            <th className="text-white" style={listItemStyle}>Student Id</th>
+            <th className="text-white" style={listItemStyle}>Student Name</th>
+            <th className="text-white" style={listItemStyle}>Department</th>
+            <th className="text-white" style={listItemStyle}>Course Name</th>
+            <th className="text-white" style={listItemStyle}>Name Of Institute</th>
+            <th className="text-white" style={listItemStyle}>View Full Details</th>
           </tr>
         </thead>
         <tbody>
