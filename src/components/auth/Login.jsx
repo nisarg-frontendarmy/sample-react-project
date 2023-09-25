@@ -38,7 +38,6 @@ const Login = () => {
           <Form.Group controlId="email">
             <Form.Label className="text-black">Email Address</Form.Label>
             <Form.Control
-              className="mt-0"
               {...register("email", {
                 required: "Please enter email",
                 pattern: {
@@ -60,7 +59,6 @@ const Login = () => {
           <Form.Group controlId="password">
             <Form.Label className="mt-2 text-black">Password</Form.Label>
             <Form.Control
-              className="mt-0"
               {...register("password", {
                 required: "Please enter a password",
                 minLength: {
