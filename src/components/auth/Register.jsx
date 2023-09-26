@@ -54,7 +54,7 @@ const Register = () => {
           <Form.Group controlId="name">
             <Form.Label className="mt-2 text-white">Full Name</Form.Label>
             <Form.Control
-              className="mt-0 bg-transparent placeholder-text-color"
+              className="mt-0 bg-transparent text-white placeholder-text-color"
               {...register("name", {
                 required: "Please enter your full name",
                 pattern: {
@@ -75,7 +75,7 @@ const Register = () => {
           <Form.Group controlId="email">
             <Form.Label className="mt-3 text-white">Email</Form.Label>
             <Form.Control
-              className="mt-0 bg-transparent placeholder-text-color"
+              className="mt-0 bg-transparent text-white placeholder-text-color"
               {...register("email", {
                 required: "Please enter your email",
                 pattern: {
@@ -97,7 +97,7 @@ const Register = () => {
           <Form.Group controlId="password">
             <Form.Label className="mt-3 text-white ">Password</Form.Label>
             <Form.Control
-              className="mt-0 bg-transparent placeholder-text-color"
+              className="mt-0 bg-transparent text-white placeholder-text-color"
               {...register("password", {
                 required: "Please enter your password",
                 minLength: {

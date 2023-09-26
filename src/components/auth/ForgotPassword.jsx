@@ -42,7 +42,7 @@ const ForgotPassword = () => {
         <img className="main-div16" src="/images/fellipse2.png" alt="Circle" />
       </div>
       <div>
-        <img className="main-div17" src="/images/NoWorries.png" alt="Message" />
+        <img className="main-div17" src="/images/NoWorries.png" alt="No worrries" />
       </div>
       <Form
         className="border border-white w-25 vh-20  rounded-top p-5 text-left d-block   main-div14"
@@ -52,7 +52,7 @@ const ForgotPassword = () => {
         <Form.Group controlId="Reset" className="w-100 ">
           <Form.Label className="w-20 mt-4 text-white">Reset Password:</Form.Label>
           <Form.Control
-          className="mt-0 bg-transparent placeholder-text-color"
+          className="mt-0 bg-transparent text-white placeholder-text-color"
             type="password"
             {...register("resetpassword", {
               required: "Please Enter The New Password",
@@ -61,7 +61,7 @@ const ForgotPassword = () => {
                 message: "Password must be at least 6 characters long",
               },
             })}
-            placeholder="Enter Your New Password"
+            placeholder="Reset Password"
           />
           {errors.resetpassword && (
             <span className="text-danger text-left">
@@ -73,14 +73,14 @@ const ForgotPassword = () => {
         <Form.Group controlId="Confirm">
           <Form.Label className="mt-3 text-white">Confirm Password:</Form.Label>
           <Form.Control
-          className="mt-0 bg-transparent placeholder-text-color"
+          className="mt-0 bg-transparent text-white placeholder-text-color"
             type="password"
             {...register("confirmpassword", {
               required: "Please Enter The Confirm Password",
               validate: (value) =>
                 value === password || "Passwords do not match",
             })}
-            placeholder="Enter Your Confirm Password"
+            placeholder="Confirm Password"
           />
           {errors.confirmpassword && (
             <span className="text-danger text-left">

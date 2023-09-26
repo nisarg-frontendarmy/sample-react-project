@@ -70,7 +70,7 @@ const Login = () => {
                 },
               })}
               type="email"
-              placeholder="Enter Your Email"
+              placeholder="Email"
             />
             {errors.email && (
               <span className="text-danger text-left">
