@@ -28,7 +28,16 @@ const Register = () => {
 
   return (
     <div className="d-flex vh-100 main-div1 main-div4">
-      <>
+      <div>
+        <img className="main-div12" src="/images/Ellipse1.png" alt="Circle" />
+      </div>
+      <div>
+        <img className="main-div13" src="/images/Ellipse2.png" alt="Circle" />
+      </div>
+      <div>
+        <img className="main-div10" src="/images/RolltheCarpet.png" alt="Rollthecarpet" />
+      </div>
+      {/* <>
         <div>
           <img
             src="/images/singupmain2.JPG"
@@ -36,16 +45,16 @@ const Register = () => {
             alt="signup"
           />
         </div>
-      </>
-      <div className="border border-black p-5  flex-column align-items-center main-div5">
-        <div className="text-center fs-2 mb-3 text-black">
+      </> */}
+      <div className="border border-white p-5  flex-column align-items-center main-div5">
+        <div className="text-center fs-2 mb-3 text-white">
           SignUp Your Account
         </div>
         <Form onSubmit={handleSubmit(onSubmit)} className="w-100 mt-4">
           <Form.Group controlId="name">
-            <Form.Label className="mt-2">Full Name</Form.Label>
+            <Form.Label className="mt-2 text-white">Full Name</Form.Label>
             <Form.Control
-              className="mt-0"
+              className="mt-0 bg-transparent placeholder-text-color"
               {...register("name", {
                 required: "Please enter your full name",
                 pattern: {
@@ -54,7 +63,7 @@ const Register = () => {
                 },
               })}
               type="text"
-              placeholder="Enter Your Full Name"
+              placeholder="Full Name"
             />
             {errors.name && (
               <span className="text-danger text-left">
@@ -64,9 +73,9 @@ const Register = () => {
           </Form.Group>
 
           <Form.Group controlId="email">
-            <Form.Label className="mt-3">Email</Form.Label>
+            <Form.Label className="mt-3 text-white">Email</Form.Label>
             <Form.Control
-              className="mt-0"
+              className="mt-0 bg-transparent placeholder-text-color"
               {...register("email", {
                 required: "Please enter your email",
                 pattern: {
@@ -76,7 +85,7 @@ const Register = () => {
                 },
               })}
               type="email"
-              placeholder="Enter Your Email"
+              placeholder="Email"
             />
             {errors.email && (
               <span className="text-danger text-left">
@@ -86,9 +95,9 @@ const Register = () => {
           </Form.Group>
 
           <Form.Group controlId="password">
-            <Form.Label className="mt-3 ">Password</Form.Label>
+            <Form.Label className="mt-3 text-white ">Password</Form.Label>
             <Form.Control
-              className="mt-0"
+              className="mt-0 bg-transparent placeholder-text-color"
               {...register("password", {
                 required: "Please enter your password",
                 minLength: {
@@ -105,7 +114,7 @@ const Register = () => {
                 },
               })}
               type="password"
-              placeholder="********"
+              placeholder="Password"
             />
             {errors.password && (
               <span className="text-danger text-left">
@@ -125,7 +134,7 @@ const Register = () => {
         </Form>
 
         <Link
-          className="text-decoration-none text-black mx-auto d-flex justify-content-center m-3"
+          className="text-decoration-none text-white mx-auto d-flex justify-content-center m-3"
           to="/"
         >
           Already have an account? Login here.

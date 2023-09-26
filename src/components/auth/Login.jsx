@@ -31,10 +31,10 @@ const Login = () => {
         />
       </div> */}
       <div>
-        <img className="main-div8" src="/images/Ellipse1.png" alt="Circle" />
+        <img className="main-div8" src="/images/rellipse1.png" alt="Circle" />
       </div>
       <div>
-        <img className="main-div9" src="/images/Ellipse2.png" alt="Circle" />
+        <img className="main-div9" src="/images/rellipse2.png" alt="Circle" />
       </div>
       <div>
         <img
