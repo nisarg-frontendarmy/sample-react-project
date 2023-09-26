@@ -35,15 +35,24 @@ const ForgotPassword = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 main-div7">
+      <div>
+        <img className="main-div15" src="/images/fellipse1.png" alt="Circle" />
+      </div>
+      <div>
+        <img className="main-div16" src="/images/fellipse2.png" alt="Circle" />
+      </div>
+      <div>
+        <img className="main-div17" src="/images/NoWorries.png" alt="Message" />
+      </div>
       <Form
-        className="border border-black w-50 vh-50 rounded-top p-5 text-left d-block"
+        className="border border-white w-25 vh-20  rounded-top p-5 text-left d-block   main-div14"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="text-center fs-3">Forgot Password</div>
-        <Form.Group controlId="Reset" className="w-100">
-          <Form.Label className="w-20 mt-4">Reset Password:</Form.Label>
+        <div className="text-center fs-3 vh-50 text-white">Forgot Password</div>
+        <Form.Group controlId="Reset" className="w-100 ">
+          <Form.Label className="w-20 mt-4 text-white">Reset Password:</Form.Label>
           <Form.Control
-          className="mt-0"
+          className="mt-0 bg-transparent placeholder-text-color"
             type="password"
             {...register("resetpassword", {
               required: "Please Enter The New Password",
@@ -62,9 +71,9 @@ const ForgotPassword = () => {
         </Form.Group>
 
         <Form.Group controlId="Confirm">
-          <Form.Label className="mt-3">Confirm Password:</Form.Label>
+          <Form.Label className="mt-3 text-white">Confirm Password:</Form.Label>
           <Form.Control
-          className="mt-0"
+          className="mt-0 bg-transparent placeholder-text-color"
             type="password"
             {...register("confirmpassword", {
               required: "Please Enter The Confirm Password",
