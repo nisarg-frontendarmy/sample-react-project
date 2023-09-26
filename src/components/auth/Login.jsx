@@ -110,7 +110,7 @@ const Login = () => {
 
           {!loggedIn ? (
             <Button
-              variant="success"
+              variant="primary"
               size="lg"
               type="submit"
               className="mx-auto d-flex justify-content-center text-white mt-4"
