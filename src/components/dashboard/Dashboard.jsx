@@ -1,54 +1,98 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import JSON from "../../students.json";
-import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
+import {
+  useReactTable,
+  createColumnHelper,
+  getCoreRowModel,
+  flexRender,
+} from "@tanstack/react-table";
 
 const Dashboard = () => {
   const history = useNavigate();
 
-  const listItemStyle = {
-    backgroundColor: "transparent",
-    border: "1px solid grey",
-    padding: "12px",
-    opacity: "10",
+  const columnHelper = createColumnHelper();
+  const columns = [
+    columnHelper.accessor("studentId", {
+      Header: "StudentId",
+      id: "studentId",
+    }),
+    columnHelper.accessor("studentName", {
+      Header: "StudentName",
+      id: "studentName",
+    }),
+    columnHelper.accessor("department", {
+      Header: "Department",
+      id: "department",
+    }),
+    columnHelper.accessor("courseName", {
+      Header: "CourseName",
+      id: "courseName",
+    }),
+    columnHelper.accessor("instituteName", {
+      Header: "Name Of Institute",
+      id: "instituteName",
+    }),
+    columnHelper.accessor("ViewDetails", {
+      Header: "View Full Details",
+      id: "ViewDetails",
+    }),
+  ];
+
+  const data = React.useMemo(() => JSON.Dashboard, []);
+
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
+
+  const handleViewDetailsClick = (studentId) => {
+    history(`/SingleStudent?${studentId}`);
   };
 
   return (
-    <div className="text-center w-100 vh-100 main-div19">
-      <div className="fs-2 mb-4 text-white">Welcome to Students Lists Page</div>
-      <Table className="w-100">
+    <div className="text-center w-100 vh-100  main-div19">
+      <div className="fs-2 mb-4 text-white">Welcome to Student Lists Page</div>
+      <table className="table w-75 mx-auto ">
         <thead>
-          <tr className="w-5 mt-10">
-            <th className="text-white bg-secondary" style={listItemStyle}>Student Id</th>
-            <th className="text-white bg-secondary" style={listItemStyle}>Student Name</th>
-            <th className="text-white bg-secondary" style={listItemStyle}>Department</th>
-            <th className="text-white bg-secondary" style={listItemStyle}>Course Name</th>
-            <th className="text-white bg-secondary" style={listItemStyle}>Name Of Institute</th>
-            <th className="text-white bg-secondary" style={listItemStyle}>View Full Details</th>
-          </tr>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <th key={header.id}>
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                </th>
+              ))}
+            </tr>
+          ))}
         </thead>
         <tbody>
-          {JSON.Dashboard.map((res, index) => (
-            <tr key={index}>
-              <td className="text-white"  style={listItemStyle}>{res.studentId}</td>
-              <td className="text-white"  style={listItemStyle}>{res.studentName}</td>
-              <td className="text-white"  style={listItemStyle}>{res.department}</td>
-              <td className="text-white"  style={listItemStyle}>{res.courseName}</td>
-              <td className="text-white"  style={listItemStyle}>{res.instituteName}</td>
-              <td className="text-white"  style={listItemStyle}>
-                <Button
-                  variant="secondary"
-                  className="mx-auto d-flex justify-content-center"
-                  onClick={() => history(`/SingleStudent?${res.studentId}`)}
-                >
-                  View Details
-                </Button>
-              </td>
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  {cell.column.id === "ViewDetails" && (
+                    <button
+                      className="btn btn-secondary"
+                      onClick={() =>
+                        handleViewDetailsClick(row.original.studentId)
+                      }
+                    >
+                      View Details
+                    </button>
+                  )}
+                </td>
+              ))}
             </tr>
           ))}
         </tbody>
-      </Table>
+      </table>
     </div>
   );
 };
