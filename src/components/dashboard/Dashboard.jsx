@@ -53,8 +53,8 @@ const Dashboard = () => {
 
   return (
     <div className="text-center w-100 vh-100  main-div19">
-      <div className="fs-2 mb-4 text-white">Welcome to Student Lists Page</div>
-      <table className="table w-75 mx-auto ">
+      <div className="fs-2 mb-4 text-white ">Welcome to Student Lists Page</div>
+      <table className="table w-75 mx-auto">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
