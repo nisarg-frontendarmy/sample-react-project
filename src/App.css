@@ -11,6 +11,7 @@
 /* React-Bootstrap:- Login Page Set width */
 .main-div1 {
   background-color: #0b0b0b;
+  overflow: hidden;
 }
 
 /* Login Page - react Bootstrap Implement */
