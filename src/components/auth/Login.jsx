@@ -23,13 +23,6 @@ const Login = () => {
 
   return (
     <div className="d-flex vh-100 main-div1">
-      {/* <div>
-        <img
-          className="img-fluid d-flex rounded-top-left rounded-bottom-left align-items-center w-100 vh-100"
-          src="/images/loginpage.JPG"
-          alt="loginpage"
-        />
-      </div> */}
       <div>
         <img className="main-div8" src="/images/rellipse1.png" alt="Circle" />
       </div>
@@ -42,16 +35,8 @@ const Login = () => {
           src="/images/welcomeback.png"
           alt="Message..!"
         />
-        {/* <div className="text-white fs-2 text-left border border-primary main-div11">
-          Glad you are back.!
-        </div> */}
       </div>
-      {/* <div
-        className="d-flex justify-content-center align-items-center"
-        style={{ height: "100vh" }}
-      >
-        <div className="fs-1 text-white">Welcome Back.!</div>
-      </div> */}
+
       <div className=" border border-white p-5 flex-column align-items-center main-div2">
         <div className="text-center fs-2 mb-3 text-white">
           Login to your Account
