@@ -112,6 +112,15 @@
   background: #0F0F0F;
 }
 
+/* Login Button Set the Color */
+.main-div20 {
+  background-color: #7d3eea;
+  padding-left: 120px;
+  padding-top: 20px;
+  padding-right: 120px;
+  padding-bottom: 20px;
+}
+
 .auth-form-container,
 .login-form,
 .register-form {

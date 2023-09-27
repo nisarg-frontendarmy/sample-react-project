@@ -113,7 +113,7 @@ const Login = () => {
               variant="primary"
               size="lg"
               type="submit"
-              className="mx-auto d-flex justify-content-center text-white mt-4"
+              className="mx-auto d-flex justify-content-center text-white mt-4 main-div20 "
             >
               Log In
             </Button>
