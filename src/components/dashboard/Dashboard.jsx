@@ -16,7 +16,7 @@ const Dashboard = () => {
     columnHelper.accessor("studentId", {
       cell: (info) => "" + info.getValue(),
       header: "Student Id",
-      id: "studentIdabcd",
+      id: "studentId",
     }),
     columnHelper.accessor("studentName", {
       header: "Student Name",
@@ -137,7 +137,7 @@ const Dashboard = () => {
   return (
     <div className="text-center w-100 vh-100  main-div19">
       <div className="fs-2 mb-4 text-white ">Welcome to Student Lists Page</div>
-      <table className="table w-78 vh-50 mx-auto main-div22">
+      <table className="table w-100 vh-50 mx-auto main-div22">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
