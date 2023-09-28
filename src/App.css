@@ -121,6 +121,7 @@
   padding-bottom: 20px;
 }
 
+
 .auth-form-container,
 .login-form,
 .register-form {
@@ -132,6 +133,131 @@
   color: #FFFFFF;
 }
 
+.department-Computer-Engineering {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#ed0936fb;
+  background-color: #f78ca233;
+  border-radius: 5px;
+}
+
+.department-Mechanical-Engineering {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#6499E9;
+  background-color: #BEFFF7;
+  border-radius: 5px;
+}
+
+.department-Electrical-Engineering {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#ed0936fb;
+  background-color: #f78ca233;
+  border-radius: 5px;
+}
+
+.department-Civil-Engineering {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#3a62be;
+  background-color: #bec4eecc;
+  border-radius: 5px;
+}
+
+.department-Information-Technology {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#6499E9;
+  background-color: #BEFFF7;
+  border-radius: 5px;
+}
+
+.department-Sociology {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#3a62be;
+  background-color: #bec4eecc;
+  border-radius: 5px;
+}
+
+.department-Political-Science {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#5B0888;
+  background-color: #d1acf6e6;
+  border-radius: 5px;
+}
+
+.department-Music {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#451952;
+  background-color: #efa4b3;
+  border-radius: 5px;
+}
+
+.department-Philosophy {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#5B0888;
+  background-color: #d1acf6e6;
+  border-radius: 5px;
+}
+
+.department-Biology {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#451952;
+  background-color: #efa4b3;
+  border-radius: 5px;
+}
+
+.department-Mathematics {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#F11A7B;
+  background-color: #fcccee;
+  border-radius: 5px;
+}
+
+.department-English-Literature {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#65451F;
+  background-color: #e6dac5;
+  border-radius: 5px;
+}
+
+.department-Chemistry {
+  font-weight: bold;
+  padding: 13px;
+  margin-top: 2px;
+  color:#F11A7B;
+  background-color: #fcccee;
+  border-radius: 5px;
+}
+
+/* Set the dot before the courseName on Dashboard Page */
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
+  display: inline-block;
+}
 
 /* .auth-form-container {
   padding: 5rem;
