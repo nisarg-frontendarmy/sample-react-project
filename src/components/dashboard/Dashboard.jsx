@@ -22,7 +22,7 @@ const Dashboard = () => {
       header: "Student Name",
       id: "studentName",
       cell: (info) => (
-        <div className="d-flex  ">
+        <div className="d-flex main-header">
           <img
             src="/images/usericon.png"
             alt="User Icon"
@@ -105,7 +105,7 @@ const Dashboard = () => {
         const dotColor = courseColorMapping[courseName] || "#000000"; 
     
         return (
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center main-courseName">
             <span className="dot m-2" style={{ backgroundColor: dotColor }}></span>
             {courseName}
           </div>
@@ -137,7 +137,7 @@ const Dashboard = () => {
   return (
     <div className="text-center w-100 vh-100  main-div19">
       <div className="fs-2 mb-4 text-white ">Welcome to Student Lists Page</div>
-      <table className="table w-100 vh-50 mx-auto main-div22">
+      <table className="table w-78 vh-50 mx-auto main-div22">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>

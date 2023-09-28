@@ -133,6 +133,8 @@
   color: #FFFFFF;
 }
 
+/* department of css designing on Dashboard Page */
+
 .department-Computer-Engineering {
   font-weight: bold;
   padding: 13px;
@@ -257,6 +259,16 @@
   background-color: #000;
   border-radius: 50%;
   display: inline-block;
+}
+
+/* Set the header of Student Name */
+.main-header {
+  padding-left: 120px;
+}
+
+/* Set the header of Course Name */
+.main-courseName {
+  padding-left: 160px;
 }
 
 /* .auth-form-container {
