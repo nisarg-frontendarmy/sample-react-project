@@ -102,7 +102,7 @@ const Dashboard = () => {
         };
         
         const courseName = info.getValue();
-        const dotColor = courseColorMapping[courseName] || "#000000"; // Default to black if no match
+        const dotColor = courseColorMapping[courseName] || "#000000"; 
     
         return (
           <div className="d-flex align-items-center">
