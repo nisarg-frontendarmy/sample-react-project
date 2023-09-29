@@ -11,6 +11,8 @@ import {
 const Dashboard = () => {
   const history = useNavigate();
 
+  const loggedData = localStorage.getItem("email");
+
   const columnHelper = createColumnHelper();
   const columns = [
     columnHelper.accessor("studentId", {
@@ -46,7 +48,7 @@ const Dashboard = () => {
         // Conditionally set the ClassName based on the department Name
         if (department === "Computer Engineering") {
           departmentClassName = "department-Computer-Engineering";
-        } else if (department === "Mechanical Engineering") {                   
+        } else if (department === "Mechanical Engineering") {
           departmentClassName = "department-Mechanical-Engineering";
         } else if (department === "Electrical Engineering") {
           departmentClassName = "department-Electrical-Engineering";
@@ -86,27 +88,30 @@ const Dashboard = () => {
       id: "courseName",
       cell: (info) => {
         const courseColorMapping = {
-          "Cyber Secuirty": "#ed0936fb", 
-          "Python": "#6499E9",     
-          "JavaScript": "#ed0936fb", 
-          "Php":"#3a62be",
-          "Fundamental":"#6499E9",
-          "Cascading Style Sheet":"#3a62be",
-          "Graphics Designer":"#5B0888",
-          "Android Developer":"#451952",
-          "Game Developer":"#5B0888",
-          "Java Develper":"#451952",
-          "Web Developer":"#F11A7B",
-          "Php Developer":"#65451F",
-          "Ethical Hacker":"#F11A7B",
+          "Cyber Secuirty": "#ed0936fb",
+          Python: "#6499E9",
+          JavaScript: "#ed0936fb",
+          Php: "#3a62be",
+          Fundamental: "#6499E9",
+          "Cascading Style Sheet": "#3a62be",
+          "Graphics Designer": "#5B0888",
+          "Android Developer": "#451952",
+          "Game Developer": "#5B0888",
+          "Java Develper": "#451952",
+          "Web Developer": "#F11A7B",
+          "Php Developer": "#65451F",
+          "Ethical Hacker": "#F11A7B",
         };
-        
+
         const courseName = info.getValue();
-        const dotColor = courseColorMapping[courseName] || "#000000"; 
-    
+        const dotColor = courseColorMapping[courseName] || "#000000";
+
         return (
           <div className="d-flex align-items-center main-courseName">
-            <span className="dot m-2" style={{ backgroundColor: dotColor }}></span>
+            <span
+              className="dot m-2"
+              style={{ backgroundColor: dotColor }}
+            ></span>
             {courseName}
           </div>
         );
@@ -136,7 +141,9 @@ const Dashboard = () => {
 
   return (
     <div className="text-center w-100 vh-100  main-div19">
-      <div className="fs-2 mb-4 text-white ">Welcome to Student Lists Page</div>
+      <div className="fs-2 mb-4 text-black bg-white ">
+        {loggedData} Welcome to Student Lists Page
+      </div>
       <table className="table w-100 vh-50 mx-auto main-div22">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (

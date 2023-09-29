@@ -12,8 +12,72 @@ const Login = () => {
   const history = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const users = [
+    {
+      email: "EmilyDevis@test.com",
+      password: "EmilyDevis123",
+    },
+    {
+      email: "MichaelJohnshon@test.com",
+      password: "MichaelJohnshon123",
+    },
+    {
+      email: "SarahBrown@test.com",
+      password: "SarahBrown123",
+    },
+    {
+      email: "DavidWilson@test.com",
+      password: "DavidWilson123",
+    },
+    {
+      email: "JessicaLee@test.com",
+      password: "JessicaLee123",
+    },
+    {
+      email: "EmmaTaylor@test.com",
+      password: "EmmaTaylor123",
+    },
+    {
+      email: "SophiaWhite@test.com",
+      password: "SophiaWhite123",
+    },
+    {
+      email: "JamesAnderson@test.com",
+      password: "JamesAnderson123",
+    },
+    {
+      email: "AvaMartinez@test.com",
+      password: "AvaMartinez123",
+    },
+    {
+      email: "AlexanderPerez@test.com",
+      password: "AlexanderPerez123",
+    },
+    {
+      email: "MiaDavis@test.com",
+      password: "MiaDavis123",
+    },
+    {
+      email: "EthanRodriguez@test.com",
+      password: "EthanRodriguez123",
+    },
+    {
+      email: "DanielTurner@test.com",
+      password: "DanielTurner123",
+    },
+  ];
+
+  function loginUser(email, password) {
+    const user = users.find(
+      (user) => user.email === email && user.password === password
+    );
+    return user;
+  }
+
   const onSubmit = (data) => {
-    if (data.email === "admin@admin.com" && data.password === "Password") {
+    const loggedInUser = loginUser(data.email, data.password);
+    if (loggedInUser) {
+      localStorage.setItem("email", data.email);
       setLoggedIn(true);
       history("dashboard");
     } else {
@@ -23,25 +87,14 @@ const Login = () => {
 
   return (
     <div className="d-flex vh-100 main-div1">
-      <div>
-        <img className="main-div8" src="/images/rellipse1.png" alt="Circle" />
-      </div>
-      <div>
-        <img className="main-div9" src="/images/rellipse2.png" alt="Circle" />
-      </div>
-      <div>
-        <img
-          className="main-div10"
-          src="/images/welcomeback.png"
-          alt="Message..!"
-        />
-      </div>
+      {/* ... Other code for your page layout ... */}
 
       <div className=" border border-white p-5 flex-column align-items-center main-div2">
         <div className="text-center fs-2 mb-3 text-white">
           Login to your Account
         </div>
         <Form onSubmit={handleSubmit(onSubmit)} className="w-100 m-3">
+          {/* Email input */}
           <Form.Group controlId="email">
             <Form.Label className="text-white">Email Address</Form.Label>
             <Form.Control
@@ -64,6 +117,7 @@ const Login = () => {
             )}
           </Form.Group>
 
+          {/* Password input */}
           <Form.Group controlId="password">
             <Form.Label className="mt-2 text-white">Password</Form.Label>
             <Form.Control
@@ -93,6 +147,7 @@ const Login = () => {
             )}
           </Form.Group>
 
+          {/* Login button */}
           {!loggedIn ? (
             <Button
               variant="primary"
@@ -107,13 +162,14 @@ const Login = () => {
           )}
         </Form>
 
-        <Link className="text-decoration-none  m-2 text-white" to="/signup">
+        {/* Links to other pages */}
+        <Link className="text-decoration-none m-2 text-white" to="/signup">
           Don't have an account? Register here.
         </Link>
-        <Link to="/signup" className=" text-decoration-none text-white">
+        <Link to="/signup" className="text-decoration-none text-white">
           Sign Up
         </Link>
-        <Link to="/forgotpassword" className=" text-decoration-none text-white">
+        <Link to="/forgotpassword" className="text-decoration-none text-white">
           Forgot Password
         </Link>
       </div>

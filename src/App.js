@@ -7,6 +7,7 @@ import Register from "./components/auth/Register";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 function App() {
   return (
     <BrowserRouter>
