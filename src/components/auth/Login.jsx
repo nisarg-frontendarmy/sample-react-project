@@ -12,14 +12,15 @@ const Login = () => {
   const history = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
 
+  
   const users = [
     {
       email: "EmilyDevis@test.com",
       password: "EmilyDevis123",
     },
     {
-      email: "MichaelJohnshon@test.com",
-      password: "MichaelJohnshon123",
+      email : "MichaelJohnshon@test.com",
+      password: "MichaelJohnshon123"
     },
     {
       email: "SarahBrown@test.com",
@@ -77,7 +78,7 @@ const Login = () => {
   const onSubmit = (data) => {
     const loggedInUser = loginUser(data.email, data.password);
     if (loggedInUser) {
-      localStorage.setItem("email", data.email);
+      localStorage.setItem("email",data.email)
       setLoggedIn(true);
       history("dashboard");
     } else {
@@ -87,14 +88,13 @@ const Login = () => {
 
   return (
     <div className="d-flex vh-100 main-div1">
-      {/* ... Other code for your page layout ... */}
+      
 
       <div className=" border border-white p-5 flex-column align-items-center main-div2">
         <div className="text-center fs-2 mb-3 text-white">
           Login to your Account
         </div>
         <Form onSubmit={handleSubmit(onSubmit)} className="w-100 m-3">
-          {/* Email input */}
           <Form.Group controlId="email">
             <Form.Label className="text-white">Email Address</Form.Label>
             <Form.Control
@@ -117,7 +117,7 @@ const Login = () => {
             )}
           </Form.Group>
 
-          {/* Password input */}
+          
           <Form.Group controlId="password">
             <Form.Label className="mt-2 text-white">Password</Form.Label>
             <Form.Control
@@ -147,7 +147,7 @@ const Login = () => {
             )}
           </Form.Group>
 
-          {/* Login button */}
+          
           {!loggedIn ? (
             <Button
               variant="primary"
@@ -162,7 +162,7 @@ const Login = () => {
           )}
         </Form>
 
-        {/* Links to other pages */}
+        
         <Link className="text-decoration-none m-2 text-white" to="/signup">
           Don't have an account? Register here.
         </Link>
