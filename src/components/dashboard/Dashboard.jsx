@@ -25,7 +25,7 @@ const Dashboard = () => {
         <div className="d-flex main-header">
           <img
             src="/images/usericon.png"
-            alt="User Icon"
+            alt=""
             style={{
               width: "20px",
               height: "20px",
