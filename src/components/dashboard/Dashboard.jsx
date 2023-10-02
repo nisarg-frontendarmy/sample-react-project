@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import JSON from "../../students.json";
+import jsonData from "../../students.json";
 import {
   useReactTable,
   createColumnHelper,
@@ -11,7 +11,7 @@ import {
 const Dashboard = () => {
   const history = useNavigate();
 
-  const loggedData = localStorage.getItem("email");
+  const loggedData = JSON.parse(localStorage.getItem("userdetails"));
 
   const columnHelper = createColumnHelper();
   const columns = [
@@ -127,7 +127,7 @@ const Dashboard = () => {
     }),
   ];
 
-  const data = React.useMemo(() => JSON.Dashboard, []);
+  const data = React.useMemo(() => jsonData.Dashboard, []);
 
   const table = useReactTable({
     data,
@@ -142,7 +142,7 @@ const Dashboard = () => {
   return (
     <div className="text-center w-100 vh-100  main-div19">
       <div className="fs-2 mb-4 text-black bg-white ">
-        {loggedData} Welcome to Student Lists Page
+        {loggedData.emailaddress} Welcome to Student Lists Page
       </div>
       <table className="table w-100 vh-50 mx-auto main-div22">
         <thead>

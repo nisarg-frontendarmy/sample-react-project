@@ -1,22 +1,22 @@
+// UserContext.js
 import { createContext, useContext, useState } from "react";
 
 const UserContext = createContext();
 
-export function useUserContext() {
+export function useUser() {
   return useContext(UserContext);
 }
 
-export function UserProvider({ childern }) {
+export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  const setUserDetails = (userData) => {
-    setUser(userData);
+  const updateUser = (newUser) => {
+    setUser(newUser);
   };
 
-  const value = {
-    user,
-    setUserDetails,
-  };
-
-  return <UserContext.Provider value={value}>{childern}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ user, updateUser }}>
+      {children}
+    </UserContext.Provider>
+  );
 }

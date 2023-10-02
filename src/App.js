@@ -22,6 +22,7 @@ function App() {
         <Route path="/students" element={<students />} />
       </Routes>
     </BrowserRouter>
+    
   );
 }
 
