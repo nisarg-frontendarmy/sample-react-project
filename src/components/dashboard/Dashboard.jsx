@@ -91,10 +91,10 @@ const Dashboard = () => {
       cell: (info) => {
         const courseColorMapping = {
           "Cyber Secuirty": "#ed0936fb",
-          Python: "#6499E9",
-          JavaScript: "#ed0936fb",
-          Php: "#3a62be",
-          Fundamental: "#6499E9",
+          "Python": "#6499E9",
+          "JavaScript": "#ed0936fb",
+          "Php": "#3a62be",
+          "Fundamental": "#6499E9",
           "Cascading Style Sheet": "#3a62be",
           "Graphics Designer": "#5B0888",
           "Android Developer": "#451952",
