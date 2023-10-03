@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
+import { useUser } from './usercontext'; 
 import jsonData from "../../students.json";
 
 const Login = () => {
@@ -11,34 +12,43 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const history = useNavigate();
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loginError, setLoginError] = useState(null);
+  const { login } = useUser(); 
 
   const loginUser = (emailaddress, password) => {
-    return jsonData.Dashboard.filter((user) =>
+    return jsonData.Dashboard.find((user) =>
       user.emailaddress === emailaddress && user.password === password
-        ? user
-        : false
     );
   };
 
   const onSubmit = (data) => {
-    const [loggedInUser] = loginUser(data.email, data.password);
+    const loggedInUser = loginUser(data.email, data.password);
     if (loggedInUser) {
+      login(loggedInUser); 
       localStorage.setItem("userdetails", JSON.stringify(loggedInUser));
-      setLoggedIn(true);
-      history("dashboard");
+      console.log("loggedInUser:", loggedInUser);
+      setLoginError(null);
+      history("/dashboard"); 
     } else {
-      setLoggedIn(false);
+      setLoginError("Invalid email or password");
     }
   };
 
   return (
     <div className="d-flex vh-100 main-div1">
       <div>
-        <img className="main-div8" src="/images/rellipse1.png" alt="Circle" />
+        <img
+          className="main-div8"
+          src="/images/rellipse1.png"
+          alt="Circle"
+        />
       </div>
       <div>
-        <img className="main-div9" src="/images/rellipse2.png" alt="Circle" />
+        <img
+          className="main-div9"
+          src="/images/rellipse2.png"
+          alt="Circle"
+        />
       </div>
       <div>
         <img
@@ -103,26 +113,23 @@ const Login = () => {
             )}
           </Form.Group>
 
-          {!loggedIn ? (
-            <Button
-              variant="primary"
-              size="lg"
-              type="submit"
-              className="mx-auto d-flex justify-content-center text-white mt-4 main-div20 "
-            >
-              Log In
-            </Button>
-          ) : (
-            <p>You are Logged In.</p>
+          {loginError && (
+            <div className="text-danger text-center mt-2">{loginError}</div>
           )}
+
+          <Button
+            variant="primary"
+            size="lg"
+            type="submit"
+            className="mx-auto d-flex justify-content-center text-white mt-4 main-div20"
+          >
+            Log In
+          </Button>
         </Form>
 
         <Link className="text-decoration-none m-2 text-white" to="/signup">
           Don't have an account? Register here.
         </Link>
-        {/* <Link to="/signup" className="text-decoration-none text-white">
-          Sign Up
-        </Link> */}
         <Link to="/forgotpassword" className="text-decoration-none text-white">
           Forgot Password
         </Link>

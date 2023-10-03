@@ -12,6 +12,8 @@ const Dashboard = () => {
   const history = useNavigate();
 
   const loggedData = JSON.parse(localStorage.getItem("userdetails"));
+  console.log("loggedData:", loggedData);
+
 
   const columnHelper = createColumnHelper();
   const columns = [
@@ -45,7 +47,7 @@ const Dashboard = () => {
         const department = info.getValue();
         let departmentClassName = "department-cell";
 
-        // Conditionally set the ClassName based on the department Name
+        
         if (department === "Computer Engineering") {
           departmentClassName = "department-Computer-Engineering";
         } else if (department === "Mechanical Engineering") {
@@ -142,7 +144,11 @@ const Dashboard = () => {
   return (
     <div className="text-center w-100 vh-100  main-div19">
       <div className="fs-2 mb-4 text-black bg-white ">
-        {loggedData.emailaddress} Welcome to Student Lists Page
+      {loggedData?.emailaddress ? (
+          `${loggedData.emailaddress} Welcome to Student Lists Page`
+        ) : (
+          "Welcome to Student Lists Page"
+        )}
       </div>
       <table className="table w-100 vh-50 mx-auto main-div22">
         <thead>

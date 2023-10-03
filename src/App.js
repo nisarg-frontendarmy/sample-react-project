@@ -6,23 +6,24 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { UserProvider } from "./components/auth/usercontext";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/student" element={<Student />} />
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/singlestudent" element={<SingleStudent />} />
-        <Route path="/signup" element={<Register />} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/students" element={<students />} />
-      </Routes>
+      <UserProvider>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/student" element={<Student />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/singlestudent" element={<SingleStudent />} />
+          <Route path="/signup" element={<Register />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/students" element={<students />} />
+        </Routes>
+      </UserProvider>
     </BrowserRouter>
-    
   );
 }
 

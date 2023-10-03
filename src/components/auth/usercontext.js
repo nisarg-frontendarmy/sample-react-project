@@ -1,22 +1,27 @@
-// UserContext.js
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from 'react';
 
 const UserContext = createContext();
 
-export function useUser() {
+export const useUser = () => {
   return useContext(UserContext);
-}
+};
 
-export function UserProvider({ children }) {
+export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const updateUser = (newUser) => {
-    setUser(newUser);
+  const login = (userData) => {
+    setUser(userData);
+  };
+
+  const logout = () => {
+    setUser(null);
   };
 
   return (
-    <UserContext.Provider value={{ user, updateUser }}>
+    <UserContext.Provider value={{ user, login, logout }}>
       {children}
     </UserContext.Provider>
   );
-}
+};
+
+export default UserContext;
