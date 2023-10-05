@@ -17,9 +17,6 @@ const Dashboard = () => {
       });
   }, []);
 
-  // const loggedData = JSON.parse(localStorage.getItem("userdetails"));
-  // console.log("loggedData:", loggedData);
-
   const handleViewDetailsClick = (studentId) => {
     history(`/SingleStudent?${studentId}`);
   };
@@ -27,11 +24,6 @@ const Dashboard = () => {
   return (
     <div className="text-center w-100 vh-100 main-div19">
       <div className="fs-2 mb-4 text-black bg-white ">
-        {/* {loggedData?.emailaddress ? (
-          `${loggedData.emailaddress} Welcome to Student Lists Page`
-        ) : (
-          "Welcome to Student Lists Page"
-        )} */}
         <div>Welcome to Student List Page</div>
       </div>
 
