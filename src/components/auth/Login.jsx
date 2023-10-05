@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
-import { useUser } from './usercontext'; 
-import jsonData from "../../students.json";
+import axios from "axios";
 
 const Login = () => {
   const {
@@ -13,42 +12,40 @@ const Login = () => {
   } = useForm();
   const history = useNavigate();
   const [loginError, setLoginError] = useState(null);
-  const { login } = useUser(); 
 
-  const loginUser = (emailaddress, password) => {
-    return jsonData.Dashboard.find((user) =>
-      user.emailaddress === emailaddress && user.password === password
-    );
+  const loginUser = async (emailaddress, password) => {
+    try {
+      const response = await axios.post("https://reqres.in/api/login", {
+        email: emailaddress,
+        password: password,
+      });
+
+      const token = response.data.token;
+
+      if (token) {
+        localStorage.setItem("token", token);
+        setLoginError(null);
+        history("/dashboard");
+      } else {
+        setLoginError("Invalid email and password");
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      setLoginError("An Error occurred while logging in.");
+    }
   };
 
   const onSubmit = (data) => {
-    const loggedInUser = loginUser(data.email, data.password);
-    if (loggedInUser) {
-      login(loggedInUser); 
-      localStorage.setItem("userdetails", JSON.stringify(loggedInUser));
-      console.log("loggedInUser:", loggedInUser);
-      setLoginError(null);
-      history("/dashboard"); 
-    } else {
-      setLoginError("Invalid email or password");
-    }
+    loginUser("eve.holt@reqres.in", "Password");
   };
 
   return (
     <div className="d-flex vh-100 main-div1">
       <div>
-        <img
-          className="main-div8"
-          src="/images/rellipse1.png"
-          alt="Circle"
-        />
+        <img className="main-div8" src="/images/rellipse1.png" alt="Circle" />
       </div>
       <div>
-        <img
-          className="main-div9"
-          src="/images/rellipse2.png"
-          alt="Circle"
-        />
+        <img className="main-div9" src="/images/rellipse2.png" alt="Circle" />
       </div>
       <div>
         <img
@@ -65,7 +62,9 @@ const Login = () => {
           <Form.Group controlId="email">
             <Form.Label className="text-white">Email Address</Form.Label>
             <Form.Control
-              className="bg-transparent text-white placeholder-text-color"
+              className={`bg-transparent text-white placeholder-text-color ${
+                errors.email ? "is-invalid" : ""
+              }`}
               {...register("email", {
                 required: "Please enter email",
                 pattern: {
@@ -78,16 +77,16 @@ const Login = () => {
               placeholder="Email"
             />
             {errors.email && (
-              <span className="text-danger text-left">
-                {errors.email?.message}
-              </span>
+              <div className="invalid-feedback">{errors.email.message}</div>
             )}
           </Form.Group>
 
           <Form.Group controlId="password">
             <Form.Label className="mt-2 text-white">Password</Form.Label>
             <Form.Control
-              className="bg-transparent text-white placeholder-text-color"
+              className={`bg-transparent text-white placeholder-text-color ${
+                errors.password ? "is-invalid" : ""
+              }`}
               {...register("password", {
                 required: "Please enter a password",
                 minLength: {
@@ -107,9 +106,7 @@ const Login = () => {
               placeholder="Password"
             />
             {errors.password && (
-              <span className="text-danger text-left">
-                {errors.password.message}
-              </span>
+              <div className="invalid-feedback">{errors.password.message}</div>
             )}
           </Form.Group>
 

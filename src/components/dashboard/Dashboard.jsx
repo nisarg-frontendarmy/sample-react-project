@@ -1,190 +1,63 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import jsonData from "../../students.json";
-import {
-  useReactTable,
-  createColumnHelper,
-  getCoreRowModel,
-  flexRender,
-} from "@tanstack/react-table";
+import axios from "axios";
 
 const Dashboard = () => {
   const history = useNavigate();
+  const [students, setStudents] = useState([]);
 
-  const loggedData = JSON.parse(localStorage.getItem("userdetails"));
-  console.log("loggedData:", loggedData);
+  useEffect(() => {
+    axios
+      .get("https://reqres.in/api/users?per_page=12")
+      .then((response) => {
+        setStudents(response.data.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
-
-  const columnHelper = createColumnHelper();
-  const columns = [
-    columnHelper.accessor("studentId", {
-      cell: (info) => "" + info.getValue(),
-      header: "Student Id",
-      id: "studentId",
-    }),
-    columnHelper.accessor("studentName", {
-      header: "Student Name",
-      id: "studentName",
-      cell: (info) => (
-        <div className="d-flex main-header">
-          <img
-            src="/images/usericon.png"
-            alt=""
-            style={{
-              width: "20px",
-              height: "20px",
-              marginRight: "3px",
-            }}
-          />
-          {info.getValue()}
-        </div>
-      ),
-    }),
-    columnHelper.accessor("department", {
-      header: "Department",
-      id: "department",
-      cell: (info) => {
-        const department = info.getValue();
-        let departmentClassName = "department-cell";
-
-        
-        if (department === "Computer Engineering") {
-          departmentClassName = "department-Computer-Engineering";
-        } else if (department === "Mechanical Engineering") {
-          departmentClassName = "department-Mechanical-Engineering";
-        } else if (department === "Electrical Engineering") {
-          departmentClassName = "department-Electrical-Engineering";
-        } else if (department === "Civil Engineering") {
-          departmentClassName = "department-Civil-Engineering";
-        } else if (department === "Information Technology") {
-          departmentClassName = "department-Information-Technology";
-        } else if (department === "Sociology") {
-          departmentClassName = "department-Sociology";
-        } else if (department === "Political Science") {
-          departmentClassName = "department-Political-Science";
-        } else if (department === "Music") {
-          departmentClassName = "department-Music";
-        } else if (department === "Philosophy") {
-          departmentClassName = "department-Philosophy";
-        } else if (department === "Biology") {
-          departmentClassName = "department-Biology";
-        } else if (department === "Mathematics") {
-          departmentClassName = "department-Mathematics";
-        } else if (department === "English Literature") {
-          departmentClassName = "department-English-Literature";
-        } else if (department === "Chemistry") {
-          departmentClassName = "department-Chemistry";
-        } else if (department === "History") {
-          departmentClassName = "department-history";
-        }
-
-        return (
-          <div className="p-3">
-            <span className={departmentClassName}>{info.getValue()}</span>
-          </div>
-        );
-      },
-    }),
-    columnHelper.accessor("courseName", {
-      header: "Course Name",
-      id: "courseName",
-      cell: (info) => {
-        const courseColorMapping = {
-          "Cyber Secuirty": "#ed0936fb",
-          "Python": "#6499E9",
-          "JavaScript": "#ed0936fb",
-          "Php": "#3a62be",
-          "Fundamental": "#6499E9",
-          "Cascading Style Sheet": "#3a62be",
-          "Graphics Designer": "#5B0888",
-          "Android Developer": "#451952",
-          "Game Developer": "#5B0888",
-          "Java Develper": "#451952",
-          "Web Developer": "#F11A7B",
-          "Php Developer": "#65451F",
-          "Ethical Hacker": "#F11A7B",
-        };
-
-        const courseName = info.getValue();
-        const dotColor = courseColorMapping[courseName] || "#000000";
-
-        return (
-          <div className="d-flex align-items-center main-courseName">
-            <span
-              className="dot m-2"
-              style={{ backgroundColor: dotColor }}
-            ></span>
-            {courseName}
-          </div>
-        );
-      },
-    }),
-    columnHelper.accessor("instituteName", {
-      header: "Name Of Institute",
-      id: "instituteName",
-    }),
-    columnHelper.accessor("ViewDetails", {
-      header: "Actions",
-      id: "ViewDetails",
-    }),
-  ];
-
-  const data = React.useMemo(() => jsonData.Dashboard, []);
-
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  });
+  // const loggedData = JSON.parse(localStorage.getItem("userdetails"));
+  // console.log("loggedData:", loggedData);
 
   const handleViewDetailsClick = (studentId) => {
     history(`/SingleStudent?${studentId}`);
   };
 
   return (
-    <div className="text-center w-100 vh-100  main-div19">
+    <div className="text-center w-100 vh-100 main-div19">
       <div className="fs-2 mb-4 text-black bg-white ">
-      {loggedData?.emailaddress ? (
+        {/* {loggedData?.emailaddress ? (
           `${loggedData.emailaddress} Welcome to Student Lists Page`
         ) : (
           "Welcome to Student Lists Page"
-        )}
+        )} */}
+        <div>Welcome to Student List Page</div>
       </div>
-      <table className="table w-100 vh-50 mx-auto main-div22">
+
+      <table className="table w-100 mt-5 vh- mx-auto main-div22">
         <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>LastName</th>
+            <th>Action</th>
+          </tr>
         </thead>
         <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id} className="gap-3">
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  {cell.column.id === "ViewDetails" && (
-                    <button
-                      className="btn btn-secondary"
-                      onClick={() =>
-                        handleViewDetailsClick(row.original.studentId)
-                      }
-                    >
-                      View Details
-                    </button>
-                  )}
-                </td>
-              ))}
+          {students.map((student) => (
+            <tr key={student.id}>
+              <td>{student.id}</td>
+              <td>{student.first_name}</td>
+              <td>{student.last_name}</td>
+              <td>
+                <button
+                  className="btn btn-secondary"
+                  onClick={() => handleViewDetailsClick(student.id)}
+                >
+                  View Details
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

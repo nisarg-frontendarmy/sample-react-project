@@ -1,33 +1,54 @@
-import React from "react";
-import JSON from "../../students.json";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import ListGroup from 'react-bootstrap/ListGroup';
+import axios from "axios";
+import ListGroup from "react-bootstrap/ListGroup";
 
 function SingleStudent(props) {
   const location = useLocation();
   let studentId = location.search;
   studentId = studentId.replace("?", "");
-  console.log(location);
-  const data = JSON.Dashboard.find((item) => item.studentId === studentId);
+  const [studentData, setStudentData] = useState(null);
 
+  useEffect(() => {
+    axios
+    .get(`https://reqres.in/api/users/${studentId}`)
+      .then((response) => {
+        setStudentData(response.data.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching student data: ", error);
+      });
+  }, [studentId]);
 
   const listItemStyle = {
-    backgroundColor:'transparent',
-    border:'none',
-    color:'white',
+    backgroundColor: "transparent",
+    border: "none",
+    color: "white",
   };
 
   return (
     <div className="border border-black w-50 m-5">
-      <div className="text-left fs-2 text-white bg-dark">Student Information:</div>
-      <ListGroup>
-        <ListGroup.Item className="text-black" style={listItemStyle}>Id : {data.studentId}</ListGroup.Item>
-        <ListGroup.Item className="text-black" style={listItemStyle}>Name : {data.studentName}</ListGroup.Item>
-        <ListGroup.Item className="text-black" style={listItemStyle}>Department : {data.department}</ListGroup.Item>
-        <ListGroup.Item className="text-black" style={listItemStyle}>Course Name : {data.courseName}</ListGroup.Item>
-        <ListGroup.Item className="text-black" style={listItemStyle}>Name of Institute : {data.instituteName}</ListGroup.Item>
-        <ListGroup.Item className="text-black" style={listItemStyle}>School Name : Shree N.V Patel Vidhymandir : {data.SchoolName}</ListGroup.Item>
-      </ListGroup>
+      <div className="text-left fs-2 text-white bg-dark">
+        Student Information:
+      </div>
+      {studentData ? (
+        <ListGroup>
+          <ListGroup.Item className="text-black" style={listItemStyle}>
+            ID : {studentData.id}
+          </ListGroup.Item>
+          <ListGroup.Item className="text-black" style={listItemStyle}>
+            First Name : {studentData.first_name}
+          </ListGroup.Item>
+          <ListGroup.Item className="text-black" style={listItemStyle}>
+            Last Name : {studentData.last_name}
+          </ListGroup.Item>
+          <ListGroup.Item className="text-black" style={listItemStyle}>
+            Email: {studentData.email}
+          </ListGroup.Item>
+        </ListGroup>
+      ) : (
+        <div>Loading</div>
+      )}
     </div>
   );
 }
