@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Table from 'react-bootstrap/Table';
 
 const Dashboard = () => {
   const history = useNavigate();
@@ -27,7 +28,7 @@ const Dashboard = () => {
         <div>Welcome to Student List Page</div>
       </div>
 
-      <table className="table w-100 mt-5 vh- mx-auto main-div22">
+      <Table striped bordered hover size="sm" className="table w-100 mt-5   mx-auto main-div22">
         <thead>
           <tr>
             <th>ID</th>
@@ -53,7 +54,7 @@ const Dashboard = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };
