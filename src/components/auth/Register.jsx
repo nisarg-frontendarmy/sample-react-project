@@ -11,7 +11,6 @@ const Register = () => {
     formState: { errors },
     reset,
   } = useForm();
-  // const history = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -36,15 +35,6 @@ const Register = () => {
       <div>
         <img className="main-div10" src="/images/RolltheCarpet.png" alt="Rollthecarpet" />
       </div>
-      {/* <>
-        <div>
-          <img
-            src="/images/singupmain2.JPG"
-            className="w-100 vh-100"
-            alt="signup"
-          />
-        </div>
-      </> */}
       <div className="border border-white p-5  flex-column align-items-center main-div5">
         <div className="text-center fs-2 mb-3 text-white">
           SignUp Your Account
