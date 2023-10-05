@@ -28,7 +28,7 @@ const Dashboard = () => {
         <div>Welcome to Student List Page</div>
       </div>
 
-      <Table striped bordered hover size="sm" className="table w-100 mt-5   mx-auto main-div22">
+      <Table striped bordered hover size="lg" className="table w-100 mt-5   mx-auto main-div22">
         <thead>
           <tr>
             <th>ID</th>
