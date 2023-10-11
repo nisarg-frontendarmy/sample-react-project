@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import Table from "react-bootstrap/Table";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import Table from 'react-bootstrap/Table';
+import {
+  fetchStudentsAsync
+} from "../../features/slice/studentslice";
 
 const Dashboard = () => {
   const history = useNavigate();
-  const [students, setStudents] = useState([]);
+  const dispatch = useDispatch();
+
+  const { students } = useSelector((state) => state.studentslice);
 
   useEffect(() => {
-    axios
-      .get("https://reqres.in/api/users?per_page=12")
-      .then((response) => {
-        setStudents(response.data.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+    dispatch(fetchStudentsAsync());
+  }, [dispatch]);
 
   const handleViewDetailsClick = (studentId) => {
     history(`/SingleStudent?${studentId}`);
@@ -28,32 +26,47 @@ const Dashboard = () => {
         <div>Welcome to Student List Page</div>
       </div>
 
-      <Table striped bordered hover size="lg" className="table w-100 mt-5   mx-auto main-div22">
+      <Table
+        striped
+        bordered
+        hover
+        size="lg"
+        className="table w-100 mt-5 mx-auto main-div22"
+      >
         <thead>
           <tr>
             <th>ID</th>
             <th>First Name</th>
-            <th>LastName</th>
+            <th>Last Name</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          {students.map((student) => (
-            <tr key={student.id}>
-              <td>{student.id}</td>
-              <td>{student.first_name}</td>
-              <td>{student.last_name}</td>
-              <td>
-                <button
-                  className="btn btn-secondary"
-                  onClick={() => handleViewDetailsClick(student.id)}
-                >
-                  View Details
-                </button>
-              </td>
+
+        {students && students.length > 0 ? (
+          <tbody>
+            {students.map((student) => (
+              <tr key={student.id}>
+                <td>{student.id}</td>
+                <td>{student.first_name}</td>
+                <td>{student.last_name}</td>
+                <td>
+                  <button
+                    className="btn btn-secondary"
+                    onClick={() => handleViewDetailsClick(student.id)}
+                  >
+                    View Details
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        ) : (
+          <tbody>
+            <tr>
+              <td colSpan="4">No students data available.</td>
             </tr>
-          ))}
-        </tbody>
+          </tbody>
+        )}
       </Table>
     </div>
   );

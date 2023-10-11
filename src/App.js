@@ -7,6 +7,8 @@ import Register from "./components/auth/Register";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { UserProvider } from "./components/auth/usercontext";
+// import { store } from "./app/store";
+// import { Provider } from "react-redux";
 
 function App() {
   return (
