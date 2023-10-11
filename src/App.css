@@ -483,6 +483,17 @@ h1 {
 
 
 /* Single Student : Style the elements */
+.main-Image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15%;
+  /* margin-left: 65%; */
+}
+
+
+
+
 .para1 {
   position: fixed;
   border: 2px solid black;
