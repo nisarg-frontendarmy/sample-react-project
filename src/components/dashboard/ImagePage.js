@@ -8,7 +8,7 @@ function ImagePage() {
 
   return (
     <div className="main-img">
-      <div className="p-5">
+      <div className="p-4">
         <h2>Image Page</h2>
         <img src={imageUrl} alt="Image" />
       </div>

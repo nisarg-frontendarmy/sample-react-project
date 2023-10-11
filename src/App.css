@@ -529,6 +529,19 @@ h1 {
   border: 1px solid black;
   width: 25%;
   margin: 5%;
+  background: #362f29;
+}
+
+.main-img h2 {
+ margin-left: -5%;
+ padding-bottom: 15px;
+ color: white;
+}
+
+.main-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
