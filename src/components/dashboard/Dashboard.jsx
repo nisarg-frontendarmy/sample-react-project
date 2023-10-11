@@ -199,7 +199,7 @@ const Dashboard = () => {
                 </td>
                 <td>
                   <button
-                    className="btn btn-secondary"
+                    className="btn btn-primary bg-success"
                     onClick={() => handleViewDetailsClick(student.id)}
                   >
                     View Details
