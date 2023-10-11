@@ -108,6 +108,14 @@
 }
 
 /* Dashboard Page react bootstrap imeplement */
+.main-email {
+  margin-left: -50%;
+}
+
+.main-header {
+  margin-top: -46px;
+}
+
 .main-div19 {
   background: #0F0F0F;
 }

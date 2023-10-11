@@ -1,56 +1,43 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import axios from "axios";
-import ListGroup from "react-bootstrap/ListGroup";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { fetchSingleStudentAsync } from "../../features/slice/studentslice";
+import { ListGroup } from "react-bootstrap";
 
-function SingleStudent(props) {
-  const location = useLocation();
-  let studentId = location.search;
-  studentId = studentId.replace("?", "");
-  const [studentData, setStudentData] = useState(null);
+const SingleStudent = () => {
+  const { studentId } = useParams();
+  const dispatch = useDispatch();
+  const {singleStudent} = useSelector((state) => state.singleStudent);
+  console.log("singleStudent",singleStudent)
 
   useEffect(() => {
-    axios
-    .get(`https://reqres.in/api/users/${studentId}`)
-      .then((response) => {
-        setStudentData(response.data.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching student data: ", error);
-      });
-  }, [studentId]);
+    dispatch(fetchSingleStudentAsync(studentId));
+  }, [dispatch, studentId]);
 
-  const listItemStyle = {
-    backgroundColor: "transparent",
-    border: "none",
-    color: "white",
-  };
+  if (!singleStudent) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="border border-black w-50 m-5">
-      <div className="text-left fs-2 text-white bg-dark">
-        Student Information:
-      </div>
-      {studentData ? (
-        <ListGroup>
-          <ListGroup.Item className="text-black" style={listItemStyle}>
-            ID : {studentData.id}
-          </ListGroup.Item>
-          <ListGroup.Item className="text-black" style={listItemStyle}>
-            First Name : {studentData.first_name}
-          </ListGroup.Item>
-          <ListGroup.Item className="text-black" style={listItemStyle}>
-            Last Name : {studentData.last_name}
-          </ListGroup.Item>
-          <ListGroup.Item className="text-black" style={listItemStyle}>
-            Email: {studentData.email}
-          </ListGroup.Item>
-        </ListGroup>
-      ) : (
-        <div>Loading</div>
-      )}
+      <div className="text-left p-2 fs-2 text-white bg-dark">Student Information</div>
+      <ListGroup>
+        <ListGroup.Item className="text-black border-bottom-0">
+          ID : {singleStudent.id}
+        </ListGroup.Item>
+        <ListGroup.Item className="text-black border-bottom-0">
+          First Name : {singleStudent.first_name}
+        </ListGroup.Item>
+        <ListGroup.Item className="text-black border-bottom-0">
+          Last Name : {singleStudent.last_name}
+        </ListGroup.Item>
+        <ListGroup.Item className="text-black border-bottom-0">
+          Email: {singleStudent.email}
+        </ListGroup.Item>
+        <ListGroup.Item className="text-black border-bottom-0">Avatar: {singleStudent.avatar}</ListGroup.Item>
+      </ListGroup>
     </div>
   );
-}
+};
 
 export default SingleStudent;

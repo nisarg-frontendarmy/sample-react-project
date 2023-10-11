@@ -15,8 +15,19 @@ export const fetchStudentsAsync = createAsyncThunk(
   }
 );
 
+export const fetchSingleStudentAsync = createAsyncThunk(
+  "students/fetchSingleStudent",
+  async (studentId) => {
+    const response = await axios.get(
+      `https://reqres.in/api/users/${studentId}`
+    );
+    return response.data;
+  }
+);
+
 const initialState = {
   students: [],
+  singleStudent: null,
   loading: "idle",
   error: null,
   statusCode: "",
@@ -46,8 +57,23 @@ const studentSlice = createSlice({
       state.loading = "idle";
       state.error = action.error.message;
     },
+    [fetchSingleStudentAsync.pending]: (state) => {
+      state.loading = "pending";
+    },
+    [fetchSingleStudentAsync.fulfilled]: (state, { payload }) => {
+      state.loading = "idle";
+
+      if (payload) {
+        state.singleStudent = payload.data;
+      }
+    },
+    [fetchSingleStudentAsync.rejected]: (state, action) => {
+      state.loading = "pending";
+      state.error = action.error.message;
+    },
   },
 });
 
+// export const selectSingleStudent = (state) => state.students.singleStudent;
 
 export default studentSlice.reducer;

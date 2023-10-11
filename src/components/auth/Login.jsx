@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
+// import { useUser } from './usercontext'; 
+// import jsonData from "../../students.json";
 import axios from "axios";
 
 const Login = () => {
@@ -12,6 +14,15 @@ const Login = () => {
   } = useForm();
   const history = useNavigate();
   const [loginError, setLoginError] = useState(null);
+  // const { login } = useUser(); 
+
+  // const loginUser = (emailaddress, password) => {
+  //   return jsonData.Dashboard.find((user) =>
+  //     user.emailaddress === emailaddress && user.password === password
+  //   );
+  // };
+
+
 
   const loginUser = async (emailaddress, password) => {
     try {
@@ -24,6 +35,7 @@ const Login = () => {
 
       if (token) {
         localStorage.setItem("token", token);
+        localStorage.setItem("email",emailaddress);
         setLoginError(null);
         history("/dashboard");
       } else {
@@ -37,6 +49,16 @@ const Login = () => {
 
   const onSubmit = (data) => {
     loginUser("eve.holt@reqres.in", "Password");
+    // const loggedInUser = loginUser(data.email, data.password);
+    // if (loggedInUser) {
+    //   login(loggedInUser); 
+    //   localStorage.setItem("userdetails", JSON.stringify(loggedInUser));
+    //   console.log("loggedInUser:", loggedInUser);
+    //   setLoginError(null);
+    //   history("/dashboard"); 
+    // } else {
+    //   setLoginError("Invalid email or password");
+    // }
   };
 
   return (
