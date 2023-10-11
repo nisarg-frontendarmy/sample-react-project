@@ -8,9 +8,9 @@ function ImagePage() {
 
   return (
     <div className="main-img">
-      <div className="p-4">
+      <div className="p-5">
         <h2>Image Page</h2>
-        <img src={imageUrl} alt="Image" />
+        <img src={imageUrl} alt={`Avatar of User ${imageId}`} />
       </div>
     </div>
   );
