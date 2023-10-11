@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Table from "react-bootstrap/Table";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 // import jsonData from "../../students.json";
@@ -190,7 +191,12 @@ const Dashboard = () => {
                 <td>{student.first_name}</td>
                 <td>{student.last_name}</td>
                 <td>{student.email}</td>
-                <td>{student.avatar}</td>
+                <td>
+                  <Link to={`/image/${student.id}`}>
+                  <img src={student.avatar} alt={`${student.first_name}'s avatar`}  width="50" height="50" />
+                  </Link>
+                  
+                </td>
                 <td>
                   <button
                     className="btn btn-secondary"

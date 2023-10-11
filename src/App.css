@@ -488,7 +488,7 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-top: -15%;
-  /* margin-left: 65%; */
+  margin-left: 65%;
 }
 
 
@@ -523,6 +523,13 @@ h1 {
   font-size: larger;
 }
 
+
+/* ImagePage */
+.main-img {
+  border: 1px solid black;
+  width: 25%;
+  margin: 5%;
+}
 
 
 
