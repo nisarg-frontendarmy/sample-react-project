@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState } from "react";
 import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,22 +6,28 @@ import { useNavigate } from "react-router-dom";
 // import jsonData from "../../students.json";
 import { fetchStudentsAsync } from "../../features/slice/studentslice";
 // import {
-//   useReactTable,
+//   // useReactTable,
 //   createColumnHelper,
-//   getCoreRowModel,
-//   flexRender,
+//   // getCoreRowModel,
+//   // flexRender,
 // } from "@tanstack/react-table";
+import Pagination from "./Pagination";
+
 
 const Dashboard = () => {
   const history = useNavigate();
   const dispatch = useDispatch();
 
+  
   // const loggedData = JSON.parse(localStorage.getItem("userdetails"));
   // console.log("loggedData:", loggedData);
 
   const { students } = useSelector((state) => state.studentslice);
-
   const userEmail = localStorage.getItem("email");
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
+
 
   useEffect(() => {
     dispatch(fetchStudentsAsync());
@@ -29,6 +35,14 @@ const Dashboard = () => {
 
   const handleViewDetailsClick = (studentId) => {
     history(`/SingleStudent/${studentId}`);
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = students.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
   //   const columnHelper = createColumnHelper();
@@ -156,6 +170,8 @@ const Dashboard = () => {
   //     getCoreRowModel: getCoreRowModel(),
   //   });
 
+  
+
   return (
     <div className="text-center w-100 vh-100 main-div19">
       <div className="fs-2 text-white bg-dark ">
@@ -183,9 +199,9 @@ const Dashboard = () => {
           </tr>
         </thead>
 
-        {students && students.length > 0 ? (
+        {currentItems && currentItems.length > 0 ? (
           <tbody>
-            {students.map((student) => (
+            {currentItems.map((student) => (
               <tr key={student.id}>
                 <td>{student.id}</td>
                 <td>{student.first_name}</td>
@@ -216,6 +232,12 @@ const Dashboard = () => {
           </tbody>
         )}
       </Table>
+      <Pagination 
+      itemsPerPage={itemsPerPage}
+      totalItems={students.length}
+      currentPage={currentPage}
+      paginate={paginate}
+      />
     </div>
   );
 
