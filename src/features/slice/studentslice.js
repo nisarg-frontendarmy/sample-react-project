@@ -37,10 +37,18 @@ const studentSlice = createSlice({
   name: "students",
   initialState,
   reducers: {
-    // addStudent: (state) => {
-    //   state.students.push(payload);
-    // },
+    updateStudent: (state, action) => {
+      const { studentId, newData  } = action.payload;
+
+      const studentIndex = state.students.findIndex(
+        (student) => student.id === studentId
+      );
+
+      if (studentIndex !== -1) {
+        state.students[studentIndex] = { ...state.students[studentIndex], ...newData };
+      }
   },
+},
   extraReducers: {
     [fetchStudentsAsync.pending]: (state) => {
       state.loading = "pending";
@@ -74,6 +82,7 @@ const studentSlice = createSlice({
   },
 });
 
-// export const selectSingleStudent = (state) => state.students.singleStudent;
+export const { updateStudent } = studentSlice.actions;
+
 
 export default studentSlice.reducer;

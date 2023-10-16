@@ -580,5 +580,30 @@ h1 {
   align-items: center;
 }
 
+/* EditData Component */
+.student-wrapper {
+  margin: 10px;
+  padding: 5px;
+  width: 50%;
+  border: 2px solid black;
+  background-color: lightgray;
+}
+
+.student-wrapper h2 {
+  padding: 10px;
+  background-color: black;
+  color: white;
+}
+
+/* Form Edit */
+.form-container label {
+  flex-flow: row;
+}
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+}
+
 
 

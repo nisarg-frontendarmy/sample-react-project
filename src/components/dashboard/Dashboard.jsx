@@ -19,6 +19,8 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   
+
+  
   // const loggedData = JSON.parse(localStorage.getItem("userdetails"));
   // console.log("loggedData:", loggedData);
 
@@ -36,6 +38,11 @@ const Dashboard = () => {
   const handleViewDetailsClick = (studentId) => {
     history(`/SingleStudent/${studentId}`);
   };
+
+  const handleEditClick = (studentId) => {
+    history(`/editStudent/${studentId}`);
+  };
+  
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -220,6 +227,8 @@ const Dashboard = () => {
                   >
                     View Details
                   </button>
+                  <Link className="btn btn-secondary bg-danger" onClick={handleEditClick} to={`/editStudent/${student.id}`}>Edit</Link>
+                  {/* <button className="btn btn-danger" onClick={() => handleEditClick(student.id)}>Delete</button> */}
                 </td>
               </tr>
             ))}
